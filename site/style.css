@@ -13,3 +13,7 @@ h1, h2, h3 {
 a {
     color: #cb644a;
 }
+
+a img {
+    border: none;
+}
