@@ -4,12 +4,29 @@
 <title>Jon Colverson</title>
 <link href="https://www.google.com/accounts/o8/ud" rel="openid2.provider">
 <link href="http://www.google.com/profiles/jjc1138" rel="openid2.local_id">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    // This is based on:
+    // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
+    // by Philip Hutchison
+    {
+        var events = 'click contextmenu';
+        var addressCleaner = function() {
+            this.href = this.href.split('?')[0].replace('DELETE@THIS', '@');
+            $(this).unbind(events, addressCleaner);
+        };
+        $('a[href^="mailto:"]').bind(events, addressCleaner);
+    }
+});
+</script>
 </head>
 
 <body>
 <div>
 <h1>Jon Colverson</h1>
-<p>Hello! You can find me on <a href="http://twitter.com/JJC1138">Twitter</a>, <a href="http://www.youtube.com/JJC1138">YouTube</a>, <a href="http://jjc1138.tumblr.com/">Tumblr</a>, <a href="http://www.facebook.com/JJC1138">Facebook</a>, and <a href="mailto:jonDELETE@THIScolverson.co.uk">email</a>.</p>
+<p>Hello! You can find me on <a href="http://twitter.com/JJC1138">Twitter</a>, <a href="http://www.youtube.com/JJC1138">YouTube</a>, <a href="http://jjc1138.tumblr.com/">Tumblr</a>, <a href="http://www.facebook.com/JJC1138">Facebook</a>, and <a href="mailto:jonDELETE@THIScolverson.co.uk?subject=Email address needs editing&body=Please remove the bits 'DELETE' and 'THIS' from the address before sending your message.">email</a>.</p>
 <h2>Professional</h2>
 <div id="professional">
 <p>I make games under the name <a href="http://JJCgames.com/">JJCgames</a>, and as one half of <a href="http://whatevergames.net/">Whatever Games</a>.</p>
