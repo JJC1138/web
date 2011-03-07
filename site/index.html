@@ -19,7 +19,7 @@ $(document).ready(function() {
     // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
     // by Philip Hutchison
     {
-        var events = 'click contextmenu';
+        var events = 'click contextmenu focus mouseover';
         var addressCleaner = function() {
             this.href = this.href.split('?')[0].replace('DELETE@THIS', '@');
             $(this).unbind(events, addressCleaner);
@@ -43,7 +43,6 @@ body {
     padding: 1.25em;
     margin: 1em;
     border-radius: 1.1em;
-    max-width: 21em;
 }
 .box *:first-child {
     margin-top: 0;
@@ -75,7 +74,7 @@ a:hover, a:active {
 </head>
 
 <body>
-<div class="box" style="float: right;">
+<div class="box" style="float: right; max-width: 21em;">
 <h1>Jon Colverson</h1>
 <p>Hello! You can find me on <a href="http://twitter.com/JJC1138">Twitter</a>, <a href="http://jjc1138.tumblr.com/">Tumblr</a>, <a href="http://www.youtube.com/JJC1138">YouTube</a>, <a href="http://www.facebook.com/JJC1138">Facebook</a>, and <a href="mailto:jonDELETE@THIScolverson.co.uk?subject=Email%20address%20needs%20editing&amp;body=Please%20remove%20the%20bits%20'DELETE'%20and%20'THIS'%20from%20the%20address%20before%20sending%20your%20message.">email</a>.</p>
 <h2>Professional</h2>
