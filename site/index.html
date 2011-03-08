@@ -15,10 +15,10 @@
 
 <script>
 $(document).ready(function() {
-    // This is based on:
-    // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
-    // by Philip Hutchison
     {
+        // This is based on:
+        // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
+        // by Philip Hutchison
         var events = 'click contextmenu focus mouseover';
         var addressCleaner = function() {
             this.href = this.href.split('?')[0].replace('DELETE@THIS', '@');
@@ -26,6 +26,38 @@ $(document).ready(function() {
         };
         $('a[href^="mailto:"]').bind(events, addressCleaner);
     }
+
+    var infobox = $('#info');
+    infobox.hide();
+    infobox.fadeIn('slow');
+
+    var photosetID = '72157624397709331';
+    $.ajax('http://api.flickr.com/services/rest/', {
+        jsonp: 'jsoncallback',
+        dataType: 'jsonp',
+        cache: false,
+        data: {
+            api_key: 'baffdb3f3f3d6542c2905eb089ddf2ca',
+            format: 'json',
+            method: 'flickr.photosets.getPhotos',
+            photoset_id: photosetID,
+            extras: 'url_l,path_alias',
+        },
+        success: function(data) {
+            photos = data.photoset.photo;
+            photo = photos[Math.floor(Math.random() * photos.length)];
+
+            var photobox = $('#photocredit');
+            var photolink = photobox.find('a');
+            photolink.text(photo.title);
+            photolink.attr('href',
+                'http://www.flickr.com/photos/' +
+                photo.pathalias + '/' + photo.id +
+                '/in/set-' + photosetID + '/');
+
+            photobox.fadeIn('slow');
+        },
+    });
 });
 </script>
 <style>
@@ -75,7 +107,7 @@ a:hover, a:active {
 
 <body>
 
-<div class="box" style="float: right; max-width: 21em;">
+<div class="box" id="info" style="float: right; max-width: 21em;">
 <h1>Jon Colverson</h1>
 <p>Hello! You can find me on <a href="http://twitter.com/JJC1138">Twitter</a>, <a href="http://jjc1138.tumblr.com/">Tumblr</a>, <a href="http://www.youtube.com/JJC1138">YouTube</a>, <a href="http://www.facebook.com/JJC1138">Facebook</a>, and <a href="mailto:jonDELETE@THIScolverson.co.uk?subject=Email%20address%20needs%20editing&amp;body=Please%20remove%20the%20bits%20'DELETE'%20and%20'THIS'%20from%20the%20address%20before%20sending%20your%20message.">email</a>.</p>
 <h2>Professional</h2>
@@ -88,8 +120,8 @@ a:hover, a:active {
 </div>
 </div>
 
-<div class="box" id="photobox" style="float: left; position: absolute; bottom: 0; display: none;">
-<p>Photo: <a id="photolink"></a></p>
+<div class="box" id="photocredit" style="float: left; position: absolute; bottom: 0; padding: 0.6em; border-radius: 0.528em; display: none;">
+<p>Photo: <a></a></p>
 </div>
 
 </body>
