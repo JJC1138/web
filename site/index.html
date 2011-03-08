@@ -11,19 +11,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
 <script src="http://use.typekit.com/eau2bgk.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
+<script>/*global Typekit */try{Typekit.load();}catch(e){}</script>
 
 <script>
+/*jslint css: true, undef: true, newcap: true, nomen: true, regexp: true, plusplus: true, bitwise: true */
+/*global $ */
 $(document).ready(function() {
     (function() {
         // This is based on:
         // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
         // by Philip Hutchison
         var events = 'click contextmenu focus mouseover';
-        var addressCleaner = function() {
+        function addressCleaner() {
             this.href = this.href.split('?')[0].replace('DELETE@THIS', '@');
             $(this).unbind(events, addressCleaner);
-        };
+        }
         $('a[href^="mailto:"]').bind(events, addressCleaner);
     }());
 
