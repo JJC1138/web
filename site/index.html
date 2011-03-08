@@ -15,7 +15,7 @@
 
 <script>
 $(document).ready(function() {
-    {
+    (function() {
         // This is based on:
         // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
         // by Philip Hutchison
@@ -25,7 +25,7 @@ $(document).ready(function() {
             $(this).unbind(events, addressCleaner);
         };
         $('a[href^="mailto:"]').bind(events, addressCleaner);
-    }
+    })();
 
     var infobox = $('#info');
     infobox.hide();
