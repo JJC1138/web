@@ -25,7 +25,7 @@ $(document).ready(function() {
             $(this).unbind(events, addressCleaner);
         };
         $('a[href^="mailto:"]').bind(events, addressCleaner);
-    })();
+    }());
 
     var infobox = $('#info');
     infobox.hide();
@@ -44,8 +44,8 @@ $(document).ready(function() {
             extras: 'url_l,path_alias'
         },
         success: function(data) {
-            photos = data.photoset.photo;
-            photo = photos[Math.floor(Math.random() * photos.length)];
+            var photos = data.photoset.photo;
+            var photo = photos[Math.floor(Math.random() * photos.length)];
 
             var photobox = $('#photocredit');
             photobox.find('a')
