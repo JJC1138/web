@@ -47,19 +47,22 @@ $(document).ready(function() {
             photos = data.photoset.photo;
             photo = photos[Math.floor(Math.random() * photos.length)];
 
-            $('<img>').attr('src', photo.url_l).load(function() {
-                var photobox = $('#photocredit');
-                photobox.find('a')
-                    .text(photo.title)
-                    .attr('href',
-                        'http://www.flickr.com/photos/' +
-                        photo.pathalias + '/' + photo.id +
-                        '/in/set-' + photosetID + '/');
-                photobox.fadeIn(1000);
+            var photobox = $('#photocredit');
+            photobox.find('a')
+                .text(photo.title)
+                .attr('href',
+                    'http://www.flickr.com/photos/' +
+                    photo.pathalias + '/' + photo.id +
+                    '/in/set-' + photosetID + '/');
 
+            $('<img>').attr('src', photo.url_l).load(function() {
                 $('#background')
                     .css('background-image', "url('" + this.src + "')")
-                    .fadeIn('slow');
+                    .fadeIn('slow', function() {
+                        setTimeout(function() {
+                            photobox.fadeIn('slow');
+                        }, 500);
+                    });
             });
         },
     });
