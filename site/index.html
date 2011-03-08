@@ -41,7 +41,7 @@ $(document).ready(function() {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
             photoset_id: photosetID,
-            extras: 'url_l,path_alias',
+            extras: 'url_l,path_alias'
         },
         success: function(data) {
             photos = data.photoset.photo;
@@ -64,7 +64,7 @@ $(document).ready(function() {
                         }, 500);
                     });
             });
-        },
+        }
     });
 });
 </script>
