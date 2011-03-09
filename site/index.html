@@ -70,6 +70,11 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('h1,#showinfo').click(function() {
+        $('#info').slideToggle();
+        $('#showinfo').fadeToggle('slow');
+    });
 });
 </script>
 <style>
@@ -129,25 +134,36 @@ a:hover, a:active {
     background-size: cover;
     -moz-background-size: cover;
 }
-#info {
+.topbox {
     position: absolute;
     top: 0;
     right: 0;
+}
+#info {
     max-width: 21.5em;
     z-index: 1;
+}
+#showinfo {
+    display: none;
+}
+h1:hover,#showinfo:hover {
+    cursor: pointer;
 }
 #photocredit {
     position: fixed;
     left: 0;
     bottom: 0;
+}
+.singlelinebox {
     padding: 0.6em;
     border-radius: 0.528em;
     -moz-border-radius: 0.528em;
     display: none;
 }
-
+</style>
+<style>
 @media screen and (max-width: 600px) {
-    #info {
+    .topbox {
         position: relative;
         float: right;
         max-width: none;
@@ -164,20 +180,20 @@ a:hover, a:active {
 
 <div id="background" style="display: none;"></div>
 
-<div class="box" id="info">
+<div class="box topbox" id="info">
 <h1>Jon Colverson</h1>
 <p>Hello! You can find me on <a href="http://twitter.com/JJC1138">Twitter</a>, <a href="http://jjc1138.tumblr.com/">Tumblr</a>, <a href="http://www.youtube.com/JJC1138">YouTube</a>, <a href="http://www.facebook.com/JJC1138">Facebook</a>, and <a href="mailto:jonDELETE@THIScolverson.co.uk?subject=Email%20address%20needs%20editing&amp;body=Please%20remove%20the%20bits%20'DELETE'%20and%20'THIS'%20from%20the%20address%20before%20sending%20your%20message.">email</a>.</p>
 <h2>Professionalistic</h2>
-<div id="professional">
 <p>I make games under the name <a href="http://JJCgames.com/">JJCgames</a>, and as one half of <a href="http://whatevergames.net/">Whatever Games</a>.</p>
-</div>
 <h2>Open sourciness</h2>
-<div id="opensource">
 <p>I made <a href="http://staticwebsync.com/">staticwebsync</a>, <a href="http://nanotweeter.com/">nanoTweeter</a>, and <a href="http://scrobbledroid.com/">Scrobble Droid</a>.</p>
 </div>
+
+<div class="box topbox singlelinebox" id="showinfo">
+<p>Show info</p>
 </div>
 
-<div class="box" id="photocredit">
+<div class="box singlelinebox" id="photocredit">
 <p>Photo: <a></a></p>
 </div>
 
