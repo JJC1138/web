@@ -129,6 +129,34 @@ a:hover, a:active {
     background-size: cover;
     -moz-background-size: cover;
 }
+#info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 21em;
+    z-index: 1;
+}
+#photocredit {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 0.6em;
+    border-radius: 0.528em;
+    -moz-border-radius: 0.528em;
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    #info {
+        position: relative;
+        float: right;
+        max-width: none;
+    }
+    #photocredit {
+        position: relative;
+        float: left;
+    }
+}
 </style>
 </head>
 
@@ -136,7 +164,7 @@ a:hover, a:active {
 
 <div id="background" style="display: none;"></div>
 
-<div class="box" id="info" style="position: absolute; top: 0; right: 0; max-width: 21em; z-index: 1;">
+<div class="box" id="info">
 <h1>Jon Colverson</h1>
 <p>Hello! You can find me on <a href="http://twitter.com/JJC1138">Twitter</a>, <a href="http://jjc1138.tumblr.com/">Tumblr</a>, <a href="http://www.youtube.com/JJC1138">YouTube</a>, <a href="http://www.facebook.com/JJC1138">Facebook</a>, and <a href="mailto:jonDELETE@THIScolverson.co.uk?subject=Email%20address%20needs%20editing&amp;body=Please%20remove%20the%20bits%20'DELETE'%20and%20'THIS'%20from%20the%20address%20before%20sending%20your%20message.">email</a>.</p>
 <h2>Professionalistic</h2>
@@ -149,7 +177,7 @@ a:hover, a:active {
 </div>
 </div>
 
-<div class="box" id="photocredit" style="position: fixed; left: 0; bottom: 0; padding: 0.6em; border-radius: 0.528em; -moz-border-radius: 0.528em; display: none;">
+<div class="box" id="photocredit">
 <p>Photo: <a></a></p>
 </div>
 
