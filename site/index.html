@@ -49,12 +49,19 @@ $(document).ready(function() {
             var photo = photos[Math.floor(Math.random() * photos.length)];
 
             var photobox = $('#photocredit');
-            photobox.find('a')
-                .text(photo.title)
-                .attr('href',
-                    'http://www.flickr.com/photos/' +
-                    photo.pathalias + '/' + photo.id +
-                    '/in/set-' + photosetID + '/');
+            if (photo.title != '') {
+                photobox.html('<p>Photo: <a></a></p>');
+            } else {
+                photobox.html('<p><a>Photo</a></p>');
+            }
+            var a = photobox.find('a');
+            a.attr('href',
+                'http://www.flickr.com/photos/' +
+                photo.pathalias + '/' + photo.id +
+                '/in/set-' + photosetID + '/');
+            if (photo.title != '') {
+                a.text(photo.title);
+            }
 
             $('<img>').attr('src', photo.url_l).load(function() {
                 $('#background')
@@ -199,7 +206,6 @@ h1:hover,#showinfo:hover {
 </div>
 
 <div class="box singlelinebox" id="photocredit">
-<p>Photo: <a></a></p>
 </div>
 
 </body>
