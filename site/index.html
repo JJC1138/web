@@ -33,6 +33,13 @@ $(document).ready(function() {
     infobox.fadeIn('slow');
 
     var photosetID = '72157628766778535';
+    var pictureSizes = ['k', 'l']; // in order of preference
+    var urlAttributes = Array();
+    for (var i in pictureSizes) {
+        urlAttributes.push('url_' + pictureSizes[i]);
+    }
+    var urlExtras = urlAttributes.join();
+
     $.ajax('http://api.flickr.com/services/rest/', {
         jsonp: 'jsoncallback',
         dataType: 'jsonp',
@@ -42,7 +49,7 @@ $(document).ready(function() {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
             photoset_id: photosetID,
-            extras: 'url_l,path_alias'
+            extras: urlExtras + ',path_alias'
         },
         success: function(data) {
             var photos = data.photoset.photo;
@@ -63,7 +70,15 @@ $(document).ready(function() {
                 a.text(photo.title);
             }
 
-            $('<img>').attr('src', photo.url_l).load(function() {
+            var photoURL;
+            for (var i in urlAttributes) {
+                photoURL = photo[urlAttributes[i]];
+                if (photoURL) {
+                    break;
+                }
+            }
+
+            $('<img>').attr('src', photoURL).load(function() {
                 $('#background')
                     .css('background-image', "url('" + this.src + "')")
                     .fadeIn('fast', function() {

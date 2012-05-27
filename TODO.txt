@@ -1,0 +1,2 @@
+Why does the photo credit box not have a bottom margin in narrow-width mode?
+There isn't quite enough space for the photo box and the 'Show info' box to sit side-by-side on 800x480 phone.
