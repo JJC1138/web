@@ -33,10 +33,14 @@ $(document).ready(function() {
     infobox.fadeIn('slow');
 
     var photosetID = '72157628766778535';
-    var pictureSizes = ['k', 'l']; // in order of preference
+    var pictureSizes = ['l', 'k', 'o']; // from smallest to largest
+    var perSizeAttributes = ['url', 'width', 'height'];
     var urlAttributes = Array();
     for (var i in pictureSizes) {
-        urlAttributes.push('url_' + pictureSizes[i]);
+        var size = pictureSizes[i];
+        for (var j in perSizeAttributes) {
+            urlAttributes.push(perSizeAttributes[j] + '_' + size);
+        }
     }
     var urlExtras = urlAttributes.join();
 
@@ -70,10 +74,24 @@ $(document).ready(function() {
                 a.text(photo.title);
             }
 
+            var photoAspect = photo.width_o / photo.height_o;
+            var screenAspect = screen.width / screen.height;
+            var neededDimension;
+            if (photoAspect > screenAspect) {
+                neededDimension = 'height';
+            } else {
+                neededDimension = 'width';
+            }
+
             var photoURL;
-            for (var i in urlAttributes) {
-                photoURL = photo[urlAttributes[i]];
-                if (photoURL) {
+            for (var i in pictureSizes) {
+                var size = pictureSizes[i];
+                photoURL = photo['url_' + size];
+                if (!photoURL) {
+                    continue;
+                }
+                if (photo[neededDimension + '_' + size] >= screen[neededDimension]) {
+                    // This photo can cover the whole screen.
                     break;
                 }
             }
