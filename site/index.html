@@ -86,10 +86,11 @@ $(document).ready(function() {
             var photoURL;
             for (var i in pictureSizes) {
                 var size = pictureSizes[i];
-                photoURL = photo['url_' + size];
-                if (!photoURL) {
+                var newPhotoURL = photo['url_' + size];
+                if (!newPhotoURL) {
                     continue;
                 }
+                photoURL = newPhotoURL;
                 if (photo[neededDimension + '_' + size] >= screen[neededDimension]) {
                     // This photo can cover the whole screen.
                     break;
