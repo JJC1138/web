@@ -87,7 +87,9 @@ $(document).ready(function() {
             }
 
             var photoURL;
-            pictureSizes.forEach(function(size) {
+            for (var i = 0; i < pictureSizes.length; ++i) {
+                var size = pictureSizes[i];
+                
                 var newPhotoURL = photo['url_' + size];
                 if (!newPhotoURL) continue;
                 
@@ -96,7 +98,7 @@ $(document).ready(function() {
                     // This photo can cover the whole screen.
                     break;
                 }
-            });
+            }
 
             $('<img>').attr('src', photoURL).load(function() {
                 $('#background')
