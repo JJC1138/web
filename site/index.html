@@ -42,12 +42,11 @@ $(document).ready(function() {
     var pictureSizes = ['l', 'k']; // from smallest to largest
     var perSizeAttributes = ['url', 'width', 'height'];
     var urlAttributes = [];
-    for (var i in pictureSizes) {
-        var size = pictureSizes[i];
-        for (var j in perSizeAttributes) {
-            urlAttributes.push(perSizeAttributes[j] + '_' + size);
-        }
-    }
+    pictureSizes.forEach(function(size) {
+        perSizeAttributes.forEach(function(perSizeAttribute) {
+            urlAttributes.push(perSizeAttribute + '_' + size);
+        });
+    });
     var urlExtras = urlAttributes.join();
 
     $.ajax('https://api.flickr.com/services/rest/', {
@@ -88,18 +87,16 @@ $(document).ready(function() {
             }
 
             var photoURL;
-            for (var i in pictureSizes) {
-                var size = pictureSizes[i];
+            pictureSizes.forEach(function(size) {
                 var newPhotoURL = photo['url_' + size];
-                if (!newPhotoURL) {
-                    continue;
-                }
+                if (!newPhotoURL) continue;
+                
                 photoURL = newPhotoURL;
                 if (photo[neededDimension + '_' + size] >= window.screen[neededDimension]) {
                     // This photo can cover the whole screen.
                     break;
                 }
-            }
+            });
 
             $('<img>').attr('src', photoURL).load(function() {
                 $('#background')
