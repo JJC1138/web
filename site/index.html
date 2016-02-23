@@ -58,6 +58,7 @@ $(document).ready(function() {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
             photoset_id: photosetID,
+            user_id: '73022107@N00', // specifying the set owner like this gives better performance
             extras: urlExtras + ',path_alias'
         },
         success: function(data) {
