@@ -12,20 +12,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/yui/3.18.0/cssbase/cssbase-min.css">
 
 <script src="https://use.typekit.net/kqf5olx.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
+<script>/* global Typekit */try{Typekit.load({ async: true });}catch(e){}</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <script>
-/*jslint css: true, undef: true, newcap: true, nomen: true, regexp: true, plusplus: true, bitwise: true */
-/*global $ */
+/* jshint eqeqeq: true, futurehostile: true, noarg: true, nocomma: true, strict: true, undef: true, unused: true */
+/* global $, document, window */
 $(document).ready(function() {
+    'use strict';
     (function() {
         // This is based on:
         // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
         // by Philip Hutchison
         var events = 'click contextmenu focus mouseover';
         function addressCleaner() {
+            /* jshint validthis: true */
             this.href = this.href.split('?')[0].replace('DELETE@THIS', '@');
             $(this).unbind(events, addressCleaner);
         }
@@ -39,7 +41,7 @@ $(document).ready(function() {
     var photosetID = '72157628766778535';
     var pictureSizes = ['l', 'k']; // from smallest to largest
     var perSizeAttributes = ['url', 'width', 'height'];
-    var urlAttributes = Array();
+    var urlAttributes = [];
     for (var i in pictureSizes) {
         var size = pictureSizes[i];
         for (var j in perSizeAttributes) {
@@ -64,7 +66,7 @@ $(document).ready(function() {
             var photo = photos[Math.floor(Math.random() * photos.length)];
 
             var photobox = $('#photocredit');
-            if (photo.title != '') {
+            if (photo.title) {
                 photobox.html('<p>Photo: <a></a></p>');
             } else {
                 photobox.html('<p><a>Photo</a></p>');
@@ -74,12 +76,10 @@ $(document).ready(function() {
                 'https://www.flickr.com/photos/' +
                 photo.pathalias + '/' + photo.id +
                 '/in/set-' + photosetID + '/');
-            if (photo.title != '') {
-                a.text(photo.title);
-            }
+            if (photo.title) a.text(photo.title);
 
             var photoAspect = photo.width_l / photo.height_l;
-            var screenAspect = screen.width / screen.height;
+            var screenAspect = window.screen.width / window.screen.height;
             var neededDimension;
             if (photoAspect > screenAspect) {
                 neededDimension = 'height';
@@ -95,7 +95,7 @@ $(document).ready(function() {
                     continue;
                 }
                 photoURL = newPhotoURL;
-                if (photo[neededDimension + '_' + size] >= screen[neededDimension]) {
+                if (photo[neededDimension + '_' + size] >= window.screen[neededDimension]) {
                     // This photo can cover the whole screen.
                     break;
                 }
@@ -105,7 +105,7 @@ $(document).ready(function() {
                 $('#background')
                     .css('background-image', "url('" + this.src + "')")
                     .fadeIn('fast', function() {
-                        setTimeout(function() {
+                        window.setTimeout(function() {
                             photobox.fadeIn('slow');
                         }, 500);
                     });
