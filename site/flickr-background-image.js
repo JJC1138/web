@@ -1,8 +1,11 @@
-/* jshint eqeqeq: true, futurehostile: true, noarg: true, nocomma: true, strict: true, undef: true, unused: true */
-/* global $, document, window */
-$(document).ready(function() {
-    'use strict';
+/* jshint eqeqeq: true, futurehostile: true, noarg: true, nocomma: true, globalstrict: true, undef: true, unused: true */
+/* global module, require, window */
 
+'use strict';
+
+var $ = require('jQuery');
+
+module.exports = function() {
     var infobox = $('#info');
     infobox.hide();
     infobox.fadeIn('slow');
@@ -86,4 +89,4 @@ $(document).ready(function() {
         $('#info').slideToggle();
         $('#showinfo').fadeToggle('slow');
     });
-});
+};
