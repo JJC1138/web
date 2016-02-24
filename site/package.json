@@ -1,0 +1,9 @@
+{
+  "name": "@jjc1138/web",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "jquery": "^2.2.1"
+  }
+}
