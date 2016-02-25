@@ -1,22 +1,26 @@
 'use strict';
 
-var $ = require('jQuery');
+const $ = require('jQuery');
 
 module.exports = () => {
-    var infobox = $('#info');
-    infobox.hide();
-    infobox.fadeIn('slow');
+    {
+        const infobox = $('#info');
+        infobox.hide();
+        infobox.fadeIn('slow');
+    }
 
-    var photosetID = '72157628766778535';
-    var pictureSizes = ['l', 'k']; // from smallest to largest
-    var perSizeAttributes = ['url', 'width', 'height'];
-    var urlAttributes = [];
-    pictureSizes.forEach(size => {
-        perSizeAttributes.forEach(function(perSizeAttribute) {
-            urlAttributes.push(`${perSizeAttribute}_${size}`);
+    const photosetID = '72157628766778535';
+    const pictureSizes = ['l', 'k']; // from smallest to largest
+    const urlExtras = (() => {
+        const perSizeAttributes = ['url', 'width', 'height'];
+        const urlAttributes = [];
+        pictureSizes.forEach(size => {
+            perSizeAttributes.forEach(perSizeAttribute => {
+                urlAttributes.push(`${perSizeAttribute}_${size}`);
+            });
         });
-    });
-    var urlExtras = urlAttributes.join();
+        return urlAttributes.join();
+    })();
 
     $.ajax('https://api.flickr.com/services/rest/', {
         jsonp: 'jsoncallback',
@@ -31,42 +35,49 @@ module.exports = () => {
             extras: `${urlExtras},path_alias`
         },
         success: data => {
-            var photos = data.photoset.photo;
-            var photo = photos[Math.floor(Math.random() * photos.length)];
+            const photo = (() => {
+                const photos = data.photoset.photo;
+                return photos[Math.floor(Math.random() * photos.length)];
+            })();
 
-            var photobox = $('#photocredit');
+            const photobox = $('#photocredit');
+
             if (photo.title) {
                 photobox.html('<p>Photo: <a></a></p>');
             } else {
                 photobox.html('<p><a>Photo</a></p>');
             }
-            var a = photobox.find('a');
-            a.attr('href',
-                `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`);
-            if (photo.title) a.text(photo.title);
 
-            var photoAspect = photo.width_l / photo.height_l;
-            var screenAspect = window.screen.width / window.screen.height;
-            var neededDimension;
-            if (photoAspect > screenAspect) {
-                neededDimension = 'height';
-            } else {
-                neededDimension = 'width';
+            {
+                const a = photobox.find('a');
+                a.attr('href',
+                    `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`);
+                if (photo.title) a.text(photo.title);
             }
 
-            var photoURL;
-            for (var i = 0; i < pictureSizes.length; ++i) {
-                var size = pictureSizes[i];
-                
-                var newPhotoURL = photo[`url_${size}`];
-                if (!newPhotoURL) continue;
-                
-                photoURL = newPhotoURL;
-                if (photo[`${neededDimension}_${size}`] >= window.screen[neededDimension]) {
-                    // This photo can cover the whole screen.
-                    break;
+            const photoURL = (() => {
+                const neededDimension = (() => {
+                    const photoAspect = photo.width_l / photo.height_l;
+                    const screenAspect = window.screen.width / window.screen.height;
+
+                    return photoAspect > screenAspect ? 'height' : 'width';
+                })();
+
+                let photoURL;
+                for (let i = 0; i < pictureSizes.length; ++i) {
+                    const size = pictureSizes[i];
+
+                    const newPhotoURL = photo[`url_${size}`];
+                    if (!newPhotoURL) continue;
+
+                    photoURL = newPhotoURL;
+                    if (photo[`${neededDimension}_${size}`] >= window.screen[neededDimension]) {
+                        // This photo can cover the whole screen.
+                        break;
+                    }
                 }
-            }
+                return photoURL;
+            })();
 
             $('<img>').attr('src', photoURL).load(function() {
                 /*eslint no-invalid-this: 0*/
