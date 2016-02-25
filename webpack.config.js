@@ -1,7 +1,9 @@
+const outpath = 'site';
+
 module.exports = {
-    entry: './site/main.js',
+    entry: './source/main.js',
     output: {
-        path: './site',
+        path: outpath,
         filename: 'bundle.js',
     },
     module: {
@@ -13,6 +15,6 @@ module.exports = {
         ],
     },
     devServer: {
-        contentBase: 'site',
+        contentBase: outpath,
     },
 };
