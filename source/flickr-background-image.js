@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-module.exports = () => {
+export default () => {
     {
         const infobox = $('#info');
         infobox.hide();
@@ -92,4 +92,4 @@ module.exports = () => {
         $('#info').slideToggle();
         $('#showinfo').fadeToggle('slow');
     });
-};
+}

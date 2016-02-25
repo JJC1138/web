@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-module.exports = () => {
+export default () => {
     // This is based on:
     // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
     // by Philip Hutchison
@@ -11,4 +11,4 @@ module.exports = () => {
         $(this).unbind(events, addressCleaner);
     }
     $('a[href^="mailto:"]').bind(events, addressCleaner);
-};
+}
