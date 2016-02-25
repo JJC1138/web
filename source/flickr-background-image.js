@@ -71,6 +71,7 @@ module.exports = () => {
             }
 
             $('<img>').attr('src', photoURL).load(function() {
+                /*eslint no-invalid-this: 0*/
                 $('#background')
                     .css('background-image', "url('" + this.src + "')")
                     .fadeIn('fast', () => {
