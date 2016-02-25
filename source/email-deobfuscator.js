@@ -2,7 +2,7 @@
 
 var $ = require('jQuery');
 
-module.exports = function() {
+module.exports = () => {
     // This is based on:
     // http://pipwerks.com/2009/02/01/obfuscating-email-addresses-revisited/
     // by Philip Hutchison

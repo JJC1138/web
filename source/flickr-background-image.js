@@ -2,7 +2,7 @@
 
 var $ = require('jQuery');
 
-module.exports = function() {
+module.exports = () => {
     var infobox = $('#info');
     infobox.hide();
     infobox.fadeIn('slow');
@@ -11,7 +11,7 @@ module.exports = function() {
     var pictureSizes = ['l', 'k']; // from smallest to largest
     var perSizeAttributes = ['url', 'width', 'height'];
     var urlAttributes = [];
-    pictureSizes.forEach(function(size) {
+    pictureSizes.forEach(size => {
         perSizeAttributes.forEach(function(perSizeAttribute) {
             urlAttributes.push(perSizeAttribute + '_' + size);
         });
@@ -30,7 +30,7 @@ module.exports = function() {
             user_id: '73022107@N00', // specifying the set owner like this gives better performance
             extras: urlExtras + ',path_alias'
         },
-        success: function(data) {
+        success: data => {
             var photos = data.photoset.photo;
             var photo = photos[Math.floor(Math.random() * photos.length)];
 
@@ -73,8 +73,8 @@ module.exports = function() {
             $('<img>').attr('src', photoURL).load(function() {
                 $('#background')
                     .css('background-image', "url('" + this.src + "')")
-                    .fadeIn('fast', function() {
-                        window.setTimeout(function() {
+                    .fadeIn('fast', () => {
+                        window.setTimeout(() => {
                             photobox.fadeIn('slow');
                         }, 500);
                     });
@@ -82,7 +82,7 @@ module.exports = function() {
         }
     });
 
-    $('h1,#showinfo').click(function() {
+    $('h1,#showinfo').click(() => {
         $('#info').slideToggle();
         $('#showinfo').fadeToggle('slow');
     });
