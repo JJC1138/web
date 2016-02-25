@@ -10,6 +10,10 @@
   "rules": {
     "eqeqeq": 2,
     "strict": [2, "global"],
-    "no-invalid-this": 2
+    "no-invalid-this": 2,
+    "no-var": 2,
+    "object-shorthand": 2,
+    "prefer-const": 2,
+    "prefer-spread": 2
   }
 }
