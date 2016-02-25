@@ -8,7 +8,7 @@ module.exports = function() {
     // by Philip Hutchison
     var events = 'click contextmenu focus mouseover';
     function addressCleaner() {
-        /* jshint validthis: true */
+        /*eslint no-invalid-this: 0*/
         this.href = this.href.split('?')[0].replace('DELETE@THIS', '@');
         $(this).unbind(events, addressCleaner);
     }

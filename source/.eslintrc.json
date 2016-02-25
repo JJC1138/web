@@ -9,6 +9,7 @@
   },
   "rules": {
     "eqeqeq": 2,
-    "strict": [2, "global"]
+    "strict": [2, "global"],
+    "no-invalid-this": 2
   }
 }
