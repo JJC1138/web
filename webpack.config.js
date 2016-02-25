@@ -17,6 +17,11 @@ if (production) {
     ]);
 }
 
+const loaderTemplateForOurJS = {
+    test: /\.js$/,
+    include: path.join(__dirname, sourcePath),
+};
+
 module.exports = {
     entry: './' + path.join(sourcePath, 'main.js'),
     output: {
@@ -24,19 +29,22 @@ module.exports = {
         filename: 'bundle.js',
     },
     module: {
+        preLoaders: [
+            Object.assign({}, loaderTemplateForOurJS, {
+                loader: 'eslint',
+            }),
+        ],
         loaders: [
             {
                 test: /\.css$/,
                 loaders: ['style', 'css'],
             },
-            {
-                test: /\.js$/,
-                include: path.join(__dirname, sourcePath),
+            Object.assign({}, loaderTemplateForOurJS, {
                 loader: 'babel',
                 query: {
                     presets: ['es2015'],
                 },
-            },
+            }),
         ],
     },
     devServer: {

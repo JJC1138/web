@@ -1,6 +1,3 @@
-/* jshint eqeqeq: true, futurehostile: true, noarg: true, nocomma: true, strict: false, globalstrict: true, undef: true, unused: true */
-/* global module, require */
-
 'use strict';
 
 var $ = require('jQuery');
