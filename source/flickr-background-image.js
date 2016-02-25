@@ -14,11 +14,11 @@ module.exports = () => {
     const urlExtras = (() => {
         const perSizeAttributes = ['url', 'width', 'height'];
         const urlAttributes = [];
-        pictureSizes.forEach(size => {
-            perSizeAttributes.forEach(perSizeAttribute => {
+        for (const size of pictureSizes) {
+            for (const perSizeAttribute of perSizeAttributes) {
                 urlAttributes.push(`${perSizeAttribute}_${size}`);
-            });
-        });
+            }
+        }
         return urlAttributes.join();
     })();
 
@@ -64,9 +64,7 @@ module.exports = () => {
                 })();
 
                 let photoURL;
-                for (let i = 0; i < pictureSizes.length; ++i) {
-                    const size = pictureSizes[i];
-
+                for (const size of pictureSizes) {
                     const newPhotoURL = photo[`url_${size}`];
                     if (!newPhotoURL) continue;
 
