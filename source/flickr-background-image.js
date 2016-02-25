@@ -13,7 +13,7 @@ module.exports = () => {
     var urlAttributes = [];
     pictureSizes.forEach(size => {
         perSizeAttributes.forEach(function(perSizeAttribute) {
-            urlAttributes.push(perSizeAttribute + '_' + size);
+            urlAttributes.push(`${perSizeAttribute}_${size}`);
         });
     });
     var urlExtras = urlAttributes.join();
@@ -28,7 +28,7 @@ module.exports = () => {
             method: 'flickr.photosets.getPhotos',
             photoset_id: photosetID,
             user_id: '73022107@N00', // specifying the set owner like this gives better performance
-            extras: urlExtras + ',path_alias'
+            extras: `${urlExtras},path_alias`
         },
         success: data => {
             var photos = data.photoset.photo;
@@ -42,9 +42,7 @@ module.exports = () => {
             }
             var a = photobox.find('a');
             a.attr('href',
-                'https://www.flickr.com/photos/' +
-                photo.pathalias + '/' + photo.id +
-                '/in/set-' + photosetID + '/');
+                `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`);
             if (photo.title) a.text(photo.title);
 
             var photoAspect = photo.width_l / photo.height_l;
@@ -60,11 +58,11 @@ module.exports = () => {
             for (var i = 0; i < pictureSizes.length; ++i) {
                 var size = pictureSizes[i];
                 
-                var newPhotoURL = photo['url_' + size];
+                var newPhotoURL = photo[`url_${size}`];
                 if (!newPhotoURL) continue;
                 
                 photoURL = newPhotoURL;
-                if (photo[neededDimension + '_' + size] >= window.screen[neededDimension]) {
+                if (photo[`${neededDimension}_${size}`] >= window.screen[neededDimension]) {
                     // This photo can cover the whole screen.
                     break;
                 }
@@ -73,7 +71,7 @@ module.exports = () => {
             $('<img>').attr('src', photoURL).load(function() {
                 /*eslint no-invalid-this: 0*/
                 $('#background')
-                    .css('background-image', "url('" + this.src + "')")
+                    .css('background-image', `url('${this.src}')`)
                     .fadeIn('fast', () => {
                         window.setTimeout(() => {
                             photobox.fadeIn('slow');
