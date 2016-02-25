@@ -12,4 +12,7 @@ module.exports = {
             }
         ],
     },
+    devServer: {
+        contentBase: 'site',
+    },
 };
