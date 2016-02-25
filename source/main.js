@@ -1,6 +1,4 @@
-'use strict';
-
-const $ = require('jQuery');
+import $ from 'jquery';
 
 $(document).ready(() => {
     require("./style.css");
