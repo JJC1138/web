@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "private": true,
-  "dependencies": {
-    "jquery": "^2.2.1"
+  "devDependencies": {
+    "jquery": "^2.2.1",
+    "webpack": "^1.12.14",
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.0"
   }
 }
