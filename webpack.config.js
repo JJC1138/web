@@ -1,8 +1,10 @@
 'use strict';
 
 const webpack = require('webpack');
+const path = require('path');
 
-const outpath = 'site';
+const sourcePath = 'source';
+const outPath = 'site';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -16,9 +18,9 @@ if (production) {
 }
 
 module.exports = {
-    entry: './source/main.js',
+    entry: './' + path.join(sourcePath, 'main.js'),
     output: {
-        path: outpath,
+        path: outPath,
         filename: 'bundle.js',
     },
     module: {
@@ -26,11 +28,19 @@ module.exports = {
             {
                 test: /\.css$/,
                 loaders: ['style', 'css'],
-            }
+            },
+            {
+                test: /\.js$/,
+                include: path.join(__dirname, sourcePath),
+                loader: 'babel',
+                query: {
+                    presets: ['es2015'],
+                },
+            },
         ],
     },
     devServer: {
-        contentBase: outpath,
+        contentBase: outPath,
     },
     plugins: plugins,
     debug: !production,
