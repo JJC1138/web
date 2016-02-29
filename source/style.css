@@ -11,6 +11,9 @@ body {
 html,body,#background {
     height: 100%;
 }
+p {
+    margin: 0 0 1em 0;
+}
 .box {
     background-color: rgba(70, 70, 70, 0.68);
     padding: 1.25em;
