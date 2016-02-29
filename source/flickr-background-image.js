@@ -21,12 +21,13 @@ export default () => {
     })();
 
     $.ajax('https://api.flickr.com/services/rest/', {
-        jsonp: 'jsoncallback',
-        dataType: 'jsonp',
+        dataType: 'json',
+        jsonp: false,
         cache: false,
         data: {
             api_key: 'baffdb3f3f3d6542c2905eb089ddf2ca',
             format: 'json',
+            nojsoncallback: 1,
             method: 'flickr.photosets.getPhotos',
             photoset_id: photosetID,
             user_id: '73022107@N00', // specifying the set owner like this gives better performance
