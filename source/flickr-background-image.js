@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default (photobox, background) => {
+export default ({ apiKey, photosetID, ownerUserID, creditBox=undefined, background=undefined }) => {
     if (!background) {
         background = document.createElement('div');
         const style = background.style;
@@ -15,7 +15,6 @@ export default (photobox, background) => {
         document.body.appendChild(background);
     }
 
-    const photosetID = '72157628766778535';
     const pictureSizes = ['l', 'k']; // from smallest to largest
     const urlExtras = (() => {
         const perSizeAttributes = ['url', 'width', 'height'];
@@ -30,12 +29,12 @@ export default (photobox, background) => {
 
     // FUTURETODO Use URLSearchParams when it's available instead of $.param().
     fetch('https://api.flickr.com/services/rest/?' + $.param({
-        api_key: 'baffdb3f3f3d6542c2905eb089ddf2ca',
+        api_key: apiKey,
         format: 'json',
         nojsoncallback: 1,
         method: 'flickr.photosets.getPhotos',
         photoset_id: photosetID,
-        user_id: '73022107@N00', // specifying the set owner like this gives better performance
+        user_id: ownerUserID, // specifying the set owner like this gives better performance
         extras: `${urlExtras},path_alias`,
     }), {
         mode: 'cors',
@@ -56,13 +55,13 @@ export default (photobox, background) => {
             return photos[Math.floor(Math.random() * photos.length)];
         })();
 
-        if (photobox) {
-            photobox.innerHTML = photo.title ?
+        if (creditBox) {
+            creditBox.innerHTML = photo.title ?
                 '<p>Photo: <a></a></p>' :
                 '<p><a>Photo</a></p>';
 
             {
-                const a = photobox.getElementsByTagName('a')[0];
+                const a = creditBox.getElementsByTagName('a')[0];
                 a.href = `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`;
                 if (photo.title) a.textContent = photo.title;
             }
@@ -97,9 +96,9 @@ export default (photobox, background) => {
                 background.style.backgroundImage = `url('${this.src}')`;
 
                 $(background).fadeIn('fast', () => {
-                    if (photobox) {
+                    if (creditBox) {
                         window.setTimeout(() => {
-                            $(photobox).fadeIn('slow');
+                            $(creditBox).fadeIn('slow');
                         }, 500);
                     }
                 });

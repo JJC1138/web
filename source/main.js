@@ -22,7 +22,12 @@ WebFont.load({
 
 $(document).ready(() => {
     emailDeobfuscator();
-    flickrBackgroundImage(document.getElementById('photocredit'));
+    flickrBackgroundImage({
+        apiKey: 'baffdb3f3f3d6542c2905eb089ddf2ca',
+        photosetID: '72157628766778535',
+        ownerUserID: '73022107@N00',
+        creditBox: document.getElementById('photocredit'),
+    });
 
     const info = document.getElementById('info');
     const showInfo = document.getElementById('showinfo');
