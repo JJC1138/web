@@ -42,19 +42,16 @@ export default () => {
             return photos[Math.floor(Math.random() * photos.length)];
         })();
 
-        const photobox = $('#photocredit');
+        const photobox = document.getElementById('photocredit');
 
-        if (photo.title) {
-            photobox.html('<p>Photo: <a></a></p>');
-        } else {
-            photobox.html('<p><a>Photo</a></p>');
-        }
+        photobox.innerHTML = photo.title ?
+            '<p>Photo: <a></a></p>' :
+            '<p><a>Photo</a></p>';
 
         {
-            const a = photobox.find('a');
-            a.attr('href',
-                `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`);
-            if (photo.title) a.text(photo.title);
+            const a = photobox.getElementsByTagName('a')[0];
+            a.href = `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`;
+            if (photo.title) a.textContent = photo.title;
         }
 
         const photoURL = (() => {
@@ -85,7 +82,7 @@ export default () => {
                 .css('background-image', `url('${this.src}')`)
                 .fadeIn('fast', () => {
                     window.setTimeout(() => {
-                        photobox.fadeIn('slow');
+                        $(photobox).fadeIn('slow');
                     }, 500);
                 });
         });
