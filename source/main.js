@@ -7,19 +7,32 @@ import './style.css';
 import emailDeobfuscator from './email-deobfuscator.js';
 import flickrBackgroundImage from './flickr-background-image.js';
 
-WebFont.load({ typekit: { id: 'kqf5olx' } });
+let fontsLoaded = false;
+
+function fontLoadingDone() {
+    fontsLoaded = true;
+    if (document.readyState !== 'loading') fontLoadingDoneAndDocumentReady();
+}
+
+WebFont.load({
+    typekit: { id: 'kqf5olx' },
+    active: fontLoadingDone,
+    inactive: fontLoadingDone,
+});
 
 $(document).ready(() => {
     emailDeobfuscator();
     flickrBackgroundImage(document.getElementById('photocredit'));
     
-    {
-        const infobox = $('#info');
-        infobox.hide();
-        infobox.fadeIn('slow');
-    }
+    $('#info').hide();
     $('h1,#showinfo').click(() => {
         $('#info').slideToggle();
         $('#showinfo').fadeToggle('slow');
     });
+
+    if (fontsLoaded) fontLoadingDoneAndDocumentReady();
 });
+
+function fontLoadingDoneAndDocumentReady() {
+    $('#info').fadeIn('slow');
+}
