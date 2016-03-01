@@ -13,7 +13,7 @@ export default () => {
         }
         return urlAttributes.join();
     })();
-    
+
     // FUTURETODO Use URLSearchParams when it's available instead of $.param().
     fetch('https://api.flickr.com/services/rest/?' + $.param({
         api_key: 'baffdb3f3f3d6542c2905eb089ddf2ca',
@@ -76,16 +76,21 @@ export default () => {
             return photoURL;
         })();
 
-        $('<img>').attr('src', photoURL).load(function() {
-            /*eslint no-invalid-this: 0*/
-            $('#background')
-                .css('background-image', `url('${this.src}')`)
-                .fadeIn('fast', () => {
+        {
+            const img = document.createElement('img');
+            img.addEventListener('load', function() {
+                /*eslint no-invalid-this: 0*/
+                const bg = document.getElementById('background');
+                bg.style.backgroundImage = `url('${this.src}')`;
+                
+                $(bg).fadeIn('fast', () => {
                     window.setTimeout(() => {
                         $(photobox).fadeIn('slow');
                     }, 500);
                 });
-        });
+            });
+            img.src = photoURL;
+        }
     }).catch(error => {
         console.log('Flickr API call failed', error);
     });
