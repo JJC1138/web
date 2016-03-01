@@ -54,5 +54,5 @@ module.exports = {
     },
     plugins: plugins,
     debug: !production,
-    devtool: production ? false : 'eval',
+    devtool: production ? false : 'source-map',
 };
