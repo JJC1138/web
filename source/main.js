@@ -24,15 +24,15 @@ $(document).ready(() => {
     emailDeobfuscator();
     flickrBackgroundImage(document.getElementById('photocredit'));
 
-    let info = document.getElementById('info');
-    let showInfo = document.getElementById('showinfo');
+    const info = document.getElementById('info');
+    const showInfo = document.getElementById('showinfo');
 
     $(info).hide();
-    let toggleInfo = () => {
+    const toggleInfo = () => {
         $(info).slideToggle();
         $(showInfo).fadeToggle('slow');
     };
-    for (const element of [document.querySelector('h1'), showinfo]) {
+    for (const element of [document.querySelector('h1'), showInfo]) {
         element.addEventListener('click', toggleInfo);
     }
 
