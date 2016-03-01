@@ -12,4 +12,14 @@ WebFont.load({ typekit: { id: 'kqf5olx' } });
 $(document).ready(() => {
     emailDeobfuscator();
     flickrBackgroundImage();
+    
+    {
+        const infobox = $('#info');
+        infobox.hide();
+        infobox.fadeIn('slow');
+    }
+    $('h1,#showinfo').click(() => {
+        $('#info').slideToggle();
+        $('#showinfo').fadeToggle('slow');
+    });
 });

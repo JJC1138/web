@@ -1,12 +1,6 @@
 import $ from 'jquery';
 
 export default () => {
-    {
-        const infobox = $('#info');
-        infobox.hide();
-        infobox.fadeIn('slow');
-    }
-
     const photosetID = '72157628766778535';
     const pictureSizes = ['l', 'k']; // from smallest to largest
     const urlExtras = (() => {
@@ -97,10 +91,5 @@ export default () => {
         });
     }).catch(error => {
         console.log('Flickr API call failed', error);
-    });
-
-    $('h1,#showinfo').click(() => {
-        $('#info').slideToggle();
-        $('#showinfo').fadeToggle('slow');
     });
 }
