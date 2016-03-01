@@ -9,7 +9,7 @@ body {
     line-height: 1.2;
     margin: 0;
 }
-html,body,#background {
+html,body {
     height: 100%;
 }
 p {
@@ -47,14 +47,6 @@ a {
 }
 a:hover, a:active {
     text-decoration: underline;
-}
-#background {
-    position: fixed;
-    width: 100%;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .topbox {
     position: absolute;

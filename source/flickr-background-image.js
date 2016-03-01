@@ -1,6 +1,20 @@
 import $ from 'jquery';
 
-export default (background, photobox) => {
+export default (photobox, background) => {
+    if (!background) {
+        background = document.createElement('div');
+        const style = background.style;
+        style.width = style.height = '100%';
+        style.position = 'fixed';
+        style.backgroundPosition = 'center';
+        style.backgroundAttachment = 'fixed';
+        style.backgroundRepeat = 'no-repeat';
+        style.backgroundSize = 'cover';
+        style.zIndex = -100;
+        style.display = 'none';
+        document.body.appendChild(background);
+    }
+
     const photosetID = '72157628766778535';
     const pictureSizes = ['l', 'k']; // from smallest to largest
     const urlExtras = (() => {
