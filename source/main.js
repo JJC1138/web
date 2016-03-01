@@ -23,16 +23,22 @@ WebFont.load({
 $(document).ready(() => {
     emailDeobfuscator();
     flickrBackgroundImage(document.getElementById('photocredit'));
-    
-    $('#info').hide();
-    $('h1,#showinfo').click(() => {
-        $('#info').slideToggle();
-        $('#showinfo').fadeToggle('slow');
-    });
+
+    let info = document.getElementById('info');
+    let showInfo = document.getElementById('showinfo');
+
+    $(info).hide();
+    let toggleInfo = () => {
+        $(info).slideToggle();
+        $(showInfo).fadeToggle('slow');
+    };
+    for (const element of [document.querySelector('h1'), showinfo]) {
+        element.addEventListener('click', toggleInfo);
+    }
 
     if (fontsLoaded) fontLoadingDoneAndDocumentReady();
 });
 
 function fontLoadingDoneAndDocumentReady() {
-    $('#info').fadeIn('slow');
+    $(document.getElementById('info')).fadeIn('slow');
 }
