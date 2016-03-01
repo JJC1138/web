@@ -11,7 +11,9 @@ WebFont.load({ typekit: { id: 'kqf5olx' } });
 
 $(document).ready(() => {
     emailDeobfuscator();
-    flickrBackgroundImage();
+    flickrBackgroundImage(
+        document.getElementById('background'),
+        document.getElementById('photocredit'));
     
     {
         const infobox = $('#info');

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default () => {
+export default (background, photobox) => {
     const photosetID = '72157628766778535';
     const pictureSizes = ['l', 'k']; // from smallest to largest
     const urlExtras = (() => {
@@ -42,16 +42,16 @@ export default () => {
             return photos[Math.floor(Math.random() * photos.length)];
         })();
 
-        const photobox = document.getElementById('photocredit');
+        if (photobox) {
+            photobox.innerHTML = photo.title ?
+                '<p>Photo: <a></a></p>' :
+                '<p><a>Photo</a></p>';
 
-        photobox.innerHTML = photo.title ?
-            '<p>Photo: <a></a></p>' :
-            '<p><a>Photo</a></p>';
-
-        {
-            const a = photobox.getElementsByTagName('a')[0];
-            a.href = `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`;
-            if (photo.title) a.textContent = photo.title;
+            {
+                const a = photobox.getElementsByTagName('a')[0];
+                a.href = `https://www.flickr.com/photos/${photo.pathalias}/${photo.id}/in/set-${photosetID}/`;
+                if (photo.title) a.textContent = photo.title;
+            }
         }
 
         const photoURL = (() => {
@@ -80,13 +80,14 @@ export default () => {
             const img = document.createElement('img');
             img.addEventListener('load', function() {
                 /*eslint no-invalid-this: 0*/
-                const bg = document.getElementById('background');
-                bg.style.backgroundImage = `url('${this.src}')`;
-                
-                $(bg).fadeIn('fast', () => {
-                    window.setTimeout(() => {
-                        $(photobox).fadeIn('slow');
-                    }, 500);
+                background.style.backgroundImage = `url('${this.src}')`;
+
+                $(background).fadeIn('fast', () => {
+                    if (photobox) {
+                        window.setTimeout(() => {
+                            $(photobox).fadeIn('slow');
+                        }, 500);
+                    }
                 });
             });
             img.src = photoURL;
