@@ -6,7 +6,8 @@ const path = require('path');
 const sourcePath = 'source';
 const outPath = 'site';
 
-const production = process.env.NODE_ENV === 'production';
+const test = process.env.npm_lifecycle_event === 'test';
+const production = test || process.env.NODE_ENV === 'production';
 
 let plugins = [
     new webpack.ProvidePlugin({ 'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch' })
@@ -18,6 +19,8 @@ if (production) {
         new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }}),
     ]);
 }
+
+if (test) plugins.push(new webpack.NoErrorsPlugin());
 
 const loaderTemplateForOurJS = {
     test: /\.js$/,
@@ -34,6 +37,10 @@ module.exports = {
         preLoaders: [
             Object.assign({}, loaderTemplateForOurJS, {
                 loader: 'eslint',
+                query: {
+                    failOnWarning: true,
+                    failOnError: true,
+                },
             }),
         ],
         loaders: [
@@ -55,4 +62,5 @@ module.exports = {
     plugins: plugins,
     debug: !production,
     devtool: production ? false : 'source-map',
+    bail: test,
 };

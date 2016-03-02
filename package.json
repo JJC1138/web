@@ -18,5 +18,8 @@
     "webfontloader": "^1.6.22",
     "webpack": "^1.12.14",
     "whatwg-fetch": "^0.11.0"
+  },
+  "scripts": {
+    "test": "webpack"
   }
 }
