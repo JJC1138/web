@@ -20,6 +20,7 @@
     "whatwg-fetch": "^0.11.0"
   },
   "scripts": {
-    "test": "webpack"
+    "test": "webpack",
+    "deploy": "NODE_ENV=production webpack && sws jjc1138.net site"
   }
 }
