@@ -28,7 +28,7 @@ const loaderTemplateForOurJS = {
 };
 
 module.exports = {
-    entry: './' + path.join(sourcePath, 'main.js'),
+    entry: ['babel-polyfill', './' + path.join(sourcePath, 'main.js')],
     output: {
         path: outPath,
         filename: 'bundle.js',
