@@ -13,7 +13,8 @@ let plugins = [];
 
 if (production) {
     plugins = plugins.concat([
-        new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }}),
+        // This is disabled for now because it doesn't currently support ES2015: https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/33
+        // new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }}),
     ]);
 }
 
