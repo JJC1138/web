@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const sourcePath = 'source';
-const outPath = 'site';
+const outPath = path.join(__dirname, 'site');
 
 const test = process.env.npm_lifecycle_event === 'test';
 const production = test || process.env.NODE_ENV === 'production';
@@ -32,22 +32,21 @@ module.exports = {
         filename: 'bundle.js',
     },
     module: {
-        preLoaders: [
+        rules: [
             Object.assign({}, loaderTemplateForOurJS, {
-                loader: 'eslint',
+                enforce: 'pre',
+                loader: 'eslint-loader',
                 query: {
                     failOnWarning: true,
                     failOnError: true,
                 },
             }),
-        ],
-        loaders: [
             {
                 test: /\.css$/,
-                loaders: ['style', 'css'],
+                loaders: ['style-loader', 'css-loader'],
             },
             Object.assign({}, loaderTemplateForOurJS, {
-                loader: 'babel',
+                loader: 'babel-loader',
                 query: {
                     presets: ['es2015'],
                 },
@@ -58,7 +57,6 @@ module.exports = {
         contentBase: outPath,
     },
     plugins: plugins,
-    debug: !production,
     devtool: production ? false : 'source-map',
     bail: test,
 };

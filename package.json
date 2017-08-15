@@ -14,7 +14,7 @@
     "normalize.css": "^3.0.3",
     "style-loader": "^0.13.2",
     "webfontloader": "^1.6.28",
-    "webpack": "^1.15.0"
+    "webpack": "^2.7.0"
   },
   "scripts": {
     "test": "webpack",
