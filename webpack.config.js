@@ -18,7 +18,7 @@ if (production) {
     ]);
 }
 
-if (test) plugins.push(new webpack.NoErrorsPlugin());
+if (test) plugins.push(new webpack.NoEmitOnErrorsPlugin());
 
 const loaderTemplateForOurJS = {
     test: /\.js$/,
@@ -43,7 +43,7 @@ module.exports = {
             }),
             {
                 test: /\.css$/,
-                loaders: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader'],
             },
         ],
     },
