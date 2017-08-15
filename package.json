@@ -10,14 +10,11 @@
     "css-loader": "^0.23.1",
     "eslint": "^2.13.1",
     "eslint-loader": "^1.9.0",
-    "exports-loader": "^0.6.4",
-    "imports-loader": "^0.6.5",
     "jquery": "^2.2.4",
     "normalize.css": "^3.0.3",
     "style-loader": "^0.13.2",
     "webfontloader": "^1.6.28",
-    "webpack": "^1.15.0",
-    "whatwg-fetch": "^0.11.1"
+    "webpack": "^1.15.0"
   },
   "scripts": {
     "test": "webpack",

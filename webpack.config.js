@@ -9,9 +9,7 @@ const outPath = 'site';
 const test = process.env.npm_lifecycle_event === 'test';
 const production = test || process.env.NODE_ENV === 'production';
 
-let plugins = [
-    new webpack.ProvidePlugin({ 'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch' })
-];
+let plugins = [];
 
 if (production) {
     plugins = plugins.concat([
