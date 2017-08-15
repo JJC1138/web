@@ -21,6 +21,6 @@
   },
   "scripts": {
     "test": "webpack",
-    "deploy": "NODE_ENV=production webpack && sws jjc1138.net site"
+    "deploy": "NODE_ENV=production webpack && firebase deploy"
   }
 }
