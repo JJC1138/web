@@ -45,12 +45,6 @@ module.exports = {
                 test: /\.css$/,
                 loaders: ['style-loader', 'css-loader'],
             },
-            Object.assign({}, loaderTemplateForOurJS, {
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015'],
-                },
-            }),
         ],
     },
     devServer: {
