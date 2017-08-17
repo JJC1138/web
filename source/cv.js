@@ -5,7 +5,7 @@ import emailDeobfuscator from './email-deobfuscator.js';
 import loadFonts from './load-fonts.js';
 
 loadFonts(
-    'kqf5olx',
+    'pnk2egk',
     () => { $(document.body).hide(); },
     () => { $(document.body).show(); }
 );
