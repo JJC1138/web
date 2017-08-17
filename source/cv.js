@@ -1,29 +1,15 @@
 import $ from 'jquery';
-import WebFont from 'webfontloader';
 import 'normalize.css';
 
 import emailDeobfuscator from './email-deobfuscator.js';
+import loadFonts from './load-fonts.js';
 
-let fontsLoaded = false;
-
-function fontLoadingDone() {
-    fontsLoaded = true;
-    if (document.readyState !== 'loading') fontLoadingDoneAndDocumentReady();
-}
-
-WebFont.load({
-    typekit: { id: 'kqf5olx' },
-    active: fontLoadingDone,
-    inactive: fontLoadingDone,
-});
+loadFonts(
+    'kqf5olx',
+    () => { $(document.body).hide(); },
+    () => { $(document.body).show(); }
+);
 
 $(document).ready(() => {
     emailDeobfuscator();
-
-    $(document.body).hide();
-    if (fontsLoaded) fontLoadingDoneAndDocumentReady();
 });
-
-function fontLoadingDoneAndDocumentReady() {
-    $(document.body).show();
-}
