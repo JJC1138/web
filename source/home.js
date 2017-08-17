@@ -9,8 +9,13 @@ import loadFonts from './load-fonts.js';
 
 loadFonts(
     'kqf5olx',
-    () => { $(document.getElementById('info')).hide(); },
-    () => { $(document.getElementById('info')).fadeIn('slow'); }
+    () => {},
+    () => {
+        const info = document.getElementById('info');
+        $(info).hide();
+        info.style.visibility = "visible";
+        $(info).fadeIn('slow');
+    }
 );
 
 $(document).ready(() => {
