@@ -26,10 +26,12 @@ const loaderTemplateForOurJS = {
 };
 
 module.exports = {
-    entry: './' + path.join(sourcePath, 'main.js'),
+    entry: {
+        'home': './' + path.join(sourcePath, 'home.js'),
+    },
     output: {
         path: outPath,
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
     module: {
         rules: [
