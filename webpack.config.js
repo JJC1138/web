@@ -28,6 +28,7 @@ const loaderTemplateForOurJS = {
 module.exports = {
     entry: {
         'home': './' + path.join(sourcePath, 'home.js'),
+        'cv': './' + path.join(sourcePath, 'cv.js'),
     },
     output: {
         path: outPath,
