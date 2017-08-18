@@ -16,7 +16,11 @@ $(document).ready(() => {
 
     for (const element of document.querySelectorAll('a')) {
         if (!element.firstChild) {
-            element.appendChild(document.createTextNode(element.href.replace("https://", "").replace("mailto:", "")));
+            let linkText = element.href;
+            linkText = linkText.replace(/^https?:\/\//, "");
+            linkText = linkText.replace(/^mailto:/, "");
+            linkText = linkText.replace(/\.com\/$/, ".com"); // Remove trailing slash if the URL is just a domain.
+            element.appendChild(document.createTextNode(linkText));
         }
     }
 });
