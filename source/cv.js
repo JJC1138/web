@@ -13,4 +13,10 @@ loadFonts(
 $(document).ready(() => {
     addListenersToCleanAddressesOnInteraction();
     cleanAddress.bind(document.getElementById('email'))();
+
+    for (const element of document.querySelectorAll('a')) {
+        if (!element.firstChild) {
+            element.appendChild(document.createTextNode(element.href.replace("https://", "").replace("mailto:", "")));
+        }
+    }
 });

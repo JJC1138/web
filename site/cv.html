@@ -14,19 +14,89 @@
         font-family: "source-code-pro", monospace;
         visibility: hidden;
     }
+
+    a,a:visited {
+        color: #bd34a9;
+    }
+    a {
+        text-decoration: none;
+    }
+    a:hover,a:active {
+        text-decoration: underline;
+    }
+
+    .contact,.summary,.projects,ol.projects .details {
+        margin-left: 15px;
+    }
+
+    ol.projects {
+        padding-left: 0;
+    }
+    ol.projects > li {
+        list-style-type: none;
+    }
+
+    ol.projects .date {
+        float: right;
+        font-size: smaller;
+    }
+
+    ol.projects .note {
+        margin-top: 6px;
+        margin-bottom: 6px;
+        font-size: smaller;
+    }
+    ol.projects .note > .label {
+        color: #595959;
+        font-style: italic;
+    }
+    ol.projects .note > ul {
+        display: inline;
+        padding: 0;
+    }
+    ol.projects .note > ul > li {
+        display: inline;
+        background-color: #465984;
+        color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 4px;
+    }
 </style>
 </head>
 
 <body>
-
 <div id="content">
 
 <h1>Jon Colverson</h1>
 
-<p><a id="email" href="mailto:jonDELETE@THIScolverson.co.uk?subject=Email%20address%20needs%20editing&amp;body=Please%20remove%20the%20bits%20'DELETE'%20and%20'THIS'%20from%20the%20address%20before%20sending%20your%20message.">[address]</a></p>
+<p class="contact"><a id="email" href="mailto:jonDELETE@THIScolverson.co.uk"></a></p>
 
+<h2>Summary</h2>
+<div class="summary">
+<p>I'm a software developer and recently I'm particularly interested in iOS and macOS app development with Swift, and in game development with Unity.</p>
 </div>
 
+<h2>Projects</h2>
+<ol class="projects">
+
+<li>
+<div class="date">January — February 2016</div>
+<h3>Video Conversion Toggler</h3>
+<div class="details">
+<p>An app for Apple TV and other Apple platforms for configuring a setting on Denon and Marantz AV receivers</p>
+<p>Developed mainly as a learning project for getting to know Swift and Cocoa</p>
+<p>Builds from one codebase for all Apple platforms</p>
+
+<div class="note"><span class="label">Tech:</span> <ul><li>Swift</li> <li>iOS</li> <li>macOS</li> <li>tvOS</li> <li>watchOS</li></ul></div>
+<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/video-conversion-toggler"></a>
+</ul></div>
+</div>
+</li>
+
+</ol>
+
+</div>
 </body>
 
 </html>
