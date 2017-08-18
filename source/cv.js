@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import 'normalize.css';
 
-import emailDeobfuscator from './email-deobfuscator.js';
+import { cleanAddress, addListenersToCleanAddressesOnInteraction } from './email-deobfuscator.js';
 import loadFonts from './load-fonts.js';
 
 loadFonts(
@@ -11,5 +11,6 @@ loadFonts(
 );
 
 $(document).ready(() => {
-    emailDeobfuscator();
+    addListenersToCleanAddressesOnInteraction();
+    cleanAddress.bind(document.getElementById('email'))();
 });
