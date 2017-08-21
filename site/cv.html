@@ -25,7 +25,7 @@
         text-decoration: underline;
     }
 
-    .contact,.summary,.projects,ol.projects .details,ol.projects .reviews {
+    section > p,section > div,section > ol > li,section > ol .details,section > ol .reviews {
         margin-left: 15px;
     }
 
@@ -33,33 +33,33 @@
         page-break-after: avoid;
     }
 
-    ol.projects {
+    section > ol {
         padding-left: 0;
     }
-    ol.projects > li {
+    section > ol > li {
         list-style-type: none;
         page-break-inside: avoid;
     }
 
-    ol.projects .date {
+    section > ol .date {
         float: right;
         font-size: smaller;
         margin-top: 3px;
     }
 
-    ol.projects .note {
+    section > ol .note {
         line-height: 22px;
         font-size: smaller;
     }
-    ol.projects .note > .label {
+    section > ol .note > .label {
         color: #595959;
         font-style: italic;
     }
-    ol.projects .note > ul {
+    section > ol .note > ul {
         display: inline;
         padding: 0;
     }
-    ol.projects .note > ul > li {
+    section > ol .note > ul > li {
         display: inline;
         background-color: #465984;
         color: white;
@@ -71,7 +71,7 @@
         white-space: nowrap;
     }
 
-    ol.projects > li > h3 a,ol.projects > li > h3 a:visited {
+    section > ol > li > h3 a,section > ol > li > h3 a:visited {
         color: inherit;
     }
 
@@ -79,7 +79,7 @@
         font-weight: normal;
     }
 
-    ol.projects .reviews {
+    section > ol .reviews {
         font-size: smaller;
     }
 </style>
@@ -90,15 +90,20 @@
 
 <h1>Jon Colverson</h1>
 
-<p class="contact"><a id="email" href="mailto:jonDELETE@THIScolverson.co.uk"></a></p>
+<section>
+<p><a id="email" href="mailto:jonDELETE@THIScolverson.co.uk"></a></p>
+</section>
 
+<section>
 <h2>Summary</h2>
-<div class="summary">
+<div>
 <p>I'm a software developer and recently I'm particularly interested in iOS and macOS app development with Swift, and in game development with Unity.</p>
 </div>
+</section>
 
+<section>
 <h2>Projects</h2>
-<ol class="projects">
+<ol>
 
 <li>
 <div class="date">January — February 2016</div>
@@ -234,9 +239,11 @@
 </li>
 
 </ol>
+</section>
 
+<section>
 <h2>Experience</h2>
-<ol class="projects">
+<ol>
 
 <li>
 <div class="date">Starting February 2009</div>
@@ -273,17 +280,21 @@
 </li>
 
 </ol>
+</section>
 
+<section>
 <h2>Education</h2>
-<ol class="projects">
+<ol>
 <li>
 <div class="date">2001 — 2004</div>
 <h3>BSc Computer Science<span class="subtitle">, University of Southampton</span></h3>
 </li>
 </ol>
+</section>
 
+<section>
 <h2>Volunteering</h2>
-<ol class="projects">
+<ol>
 
 <li>
 <div class="date">March 2014 — May 2015</div>
@@ -302,6 +313,8 @@
 </li>
 
 </ol>
+</section>
+
 
 </div>
 </body>
