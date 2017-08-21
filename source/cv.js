@@ -16,4 +16,19 @@ $(document).ready(() => {
             element.appendChild(document.createTextNode(linkText));
         }
     }
+
+    for (const project of document.querySelectorAll('#projects > ol > li[data-minor]')) {
+        const heading = project.querySelector('.heading');
+        const toggle = document.createElement('div');
+        toggle.innerText = "X"; // FIXME remove
+        toggle.classList.add('detail-toggle');
+        heading.insertBefore(toggle, heading.firstChild);
+
+        const details = project.querySelector('.details');
+        toggle.addEventListener('click', () => {
+            $(details).slideToggle();
+        });
+
+        $(details).hide();
+    }
 });

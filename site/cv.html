@@ -86,6 +86,20 @@
     section > ol .reviews {
         font-size: smaller;
     }
+
+    div.detail-toggle {
+        float: left;
+        margin-right: 12px;
+        font-size: 32px; // FIXME remove
+    }
+    @media print {
+        div.detail-toggle {
+            display: none;
+        }
+        #projects div.details {
+            display: block !important; // Unhide any that have been hidden.
+        }
+    }
 </style>
 </head>
 
@@ -105,7 +119,7 @@
 </div>
 </section>
 
-<section>
+<section id="projects">
 <h2>Projects</h2>
 <ol>
 
@@ -134,7 +148,7 @@
 </div>
 </li>
 
-<li>
+<li data-minor>
 <div class="heading">
 <h3>Video Conversion Toggler</h3>
 <div class="date">January — February 2016</div>
