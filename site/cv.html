@@ -41,10 +41,23 @@
         page-break-inside: avoid;
     }
 
-    section > ol .date {
-        float: right;
+    div.heading {
+        display: flex;
+        margin-top: 30px;
+    }
+    div.heading > h3 {
+        flex: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    div.heading .date {
         font-size: smaller;
         margin-top: 3px;
+    }
+    @media (max-width: 600px) {
+        div.heading {
+            display: block;
+        }
     }
 
     section > ol .note {
@@ -71,7 +84,7 @@
         white-space: nowrap;
     }
 
-    section > ol > li > h3 a,section > ol > li > h3 a:visited {
+    h3 a,h3 a:visited {
         color: inherit;
     }
 
@@ -106,8 +119,10 @@
 <ol>
 
 <li>
-<div class="date">January — February 2016</div>
+<div class="heading">
 <h3>Video Conversion Toggler</h3>
+<div class="date">January — February 2016</div>
+</div>
 <div class="details">
 <p>An app for Apple TV and other Apple platforms for configuring a setting on Denon and Marantz AV receivers</p>
 <p>Developed mainly as a learning project for getting to know Swift and Cocoa</p>
@@ -118,8 +133,10 @@
 </li>
 
 <li>
-<div class="date">Starting October 2010</div>
+<div class="heading">
 <h3>staticwebsync</h3>
+<div class="date">Starting October 2010</div>
+</div>
 <div class="details">
 <p>An open-source tool for web developers that dramatically simplifies the process of setting up static web site hosting on Amazon Web Services' S3 and CloudFront</p>
 <div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
@@ -128,8 +145,10 @@
 </li>
 
 <li>
-<div class="date">Starting October 2010</div>
+<div class="heading">
 <h3><a href="https://jjc1138.net/">JJC1138.net</a></h3>
+<div class="date">Starting October 2010</div>
+</div>
 <div class="details">
 <p>My simple personal web site that I use as a playground for trying out new web technologies</p>
 <div class="note"><span class="label">Current tech:</span> <ul><li>ES2015 JavaScript</li> <li>webpack</li> <li>jQuery</li> <li>Travis CI</li> <li>Typekit</li> <li>Flickr API</li> <li>ESLint</li> <li>Firebase Hosting</li></ul></div>
@@ -138,8 +157,10 @@
 </li>
 
 <li>
-<div class="date">June 2013 — July 2015</div>
+<div class="heading">
 <h3>Stick 'Em Up 2 <span class="subtitle">(PC and mobile port)</span></h3>
+<div class="date">June 2013 — July 2015</div>
+</div>
 <div class="details">
 <p>A remake of the game almost from scratch in Unity, and ported to Windows, Mac, Linux, iOS, and Android with network support and a robust input system simultaneously supporting any combination of controllers, keyboard/mouse, and on-screen touch controls</p>
 <div class="note"><span class="label">Tech:</span> <ul><li>Unity</li> <li>C#</li> <li>Steamworks</li> <li>iCloud</li> <li>Google Play Game Services</li></ul></div>
@@ -149,8 +170,10 @@
 </li>
 
 <li>
-<div class="date">Starting November 2012</div>
+<div class="heading">
 <h3>Mesh Explosion</h3>
+<div class="date">Starting November 2012</div>
+</div>
 <div class="details">
 <p>A library for creating real-time explosions in Unity games</p>
 <p>Average customer review rating: 5 stars</p>
@@ -161,8 +184,10 @@
 </li>
 
 <li>
-<div class="date">April 2010 – October 2011</div>
+<div class="heading">
 <h3>Stick 'Em Up 2<span class="subtitle">: Paper Adventures</span></h3>
+<div class="date">April 2010 – October 2011</div>
+</div>
 <div class="details">
 <p>Xbox 360 platform/run'n'gun game sequel with significantly upgraded graphics</p>
 <p>Sold over 47,000 copies</p>
@@ -173,8 +198,10 @@
 </li>
 
 <li>
-<div class="date">January – April 2010</div>
+<div class="heading">
 <h3>Stick 'Em Up</h3>
+<div class="date">January – April 2010</div>
+</div>
 <div class="details">
 <p>Xbox 360 platform/run'n'gun game with 4-player co-op and versus modes</p>
 <div class="note"><span class="label">Tech:</span> <ul><li>XNA</li> <li>C#</li> <li>Xbox 360</li></ul></div>
@@ -184,8 +211,10 @@
 </li>
 
 <li>
-<div class="date">March – June 2009</div>
+<div class="heading">
 <h3>Wand Master</h3>
+<div class="date">March – June 2009</div>
+</div>
 <div class="details">
 <p>An Android game where players trace drawings to cast spells against magical monsters</p>
 <p>Included internet high score system built with Python on Google App Engine/Cloud Datastore</p>
@@ -195,8 +224,10 @@
 </li>
 
 <li>
-<div class="date">December 2008 – February 2009</div>
+<div class="heading">
 <h3>Air Hockey</h3>
+<div class="date">December 2008 – February 2009</div>
+</div>
 <div class="details">
 <p>Android game, launched on first day that paid app market was available</p>
 <p>Over 1.7 million downloads of free version</p>
@@ -207,8 +238,10 @@
 </li>
 
 <li>
-<div class="date">Starting November 2008</div>
+<div class="heading">
 <h3>nanoTweeter</h3>
+<div class="date">Starting November 2008</div>
+</div>
 <div class="details">
 <p>An extremely minimalist open source Twitter client for Android, and the first one that supported the Android notification system</p>
 <div class="note"><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li></ul></div>
@@ -217,8 +250,10 @@
 </li>
 
 <li>
-<div class="date">Starting November 2008</div>
+<div class="heading">
 <h3>Scrobble Droid</h3>
+<div class="date">Starting November 2008</div>
+</div>
 <div class="details">
 <p>The first ever Last.fm client for Android</p>
 <p>Over 190,000 downloads</p>
@@ -229,8 +264,10 @@
 </li>
 
 <li>
-<div class="date">December 2006 – October 2007</div>
+<div class="heading">
 <h3>PayAsYouPlay.org</h3>
+<div class="date">December 2006 – October 2007</div>
+</div>
 <div class="details">
 <p>A pay-by-the-hour game server hosting service essentially reselling EC2 server rental with a consumer-friendly retail front-end</p>
 <div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Django</li> <li>EC2</li> <li>PostgreSQL</li> <li>JavaScript</li> <li>PayPal API</li></ul></div>
@@ -246,8 +283,10 @@
 <ol>
 
 <li>
-<div class="date">Starting February 2009</div>
+<div class="heading">
 <h3>Game Developer<span class="subtitle">, Never Don't Play (Founder)</span></h3>
+<div class="date">Starting February 2009</div>
+</div>
 <div class="details">
 <p>Developed games for Xbox 360, PC, iOS, Android, Mac, and Linux</p>
 <p>Collaborated with artists and occasionally with another programmer</p>
@@ -257,8 +296,10 @@
 </li>
 
 <li>
-<div class="date">November 2006 — October 2010</div>
+<div class="heading">
 <h3>Freelance Programmer</h3>
+<div class="date">November 2006 — October 2010</div>
+</div>
 <div class="details">
 <p>Software projects including a video ringtone app, a map-based prototype taxi booking app, a service fleet management app, and various system administration odd jobs and bug fixing</p>
 <p>Achieved perfect 5.0 feedback rating over 51 jobs with reviews including:</p>
@@ -286,8 +327,10 @@
 <h2>Education</h2>
 <ol>
 <li>
-<div class="date">2001 — 2004</div>
+<div class="heading">
 <h3>BSc Computer Science<span class="subtitle">, University of Southampton</span></h3>
+<div class="date">2001 — 2004</div>
+</div>
 </li>
 </ol>
 </section>
@@ -297,16 +340,20 @@
 <ol>
 
 <li>
-<div class="date">March 2014 — May 2015</div>
+<div class="heading">
 <h3>Campaigning<span class="subtitle">, Local political party</span></h3>
+<div class="date">March 2014 — May 2015</div>
+</div>
 <div class="details">
 <p>Helped with canvassing and get-out-the-vote operations, and filmed and edited a series of campaign videos for our local party candidate</p>
 </div>
 </li>
 
 <li>
-<div class="date">August 2013</div>
+<div class="heading">
 <h3>Web Developer<span class="subtitle">, Out4Marriage</span></h3>
+<div class="date">August 2013</div>
+</div>
 <div class="details">
 <p>Converted the successful Out4Marriage Lobby a Lord site that helped users to lobby the members of the House of Lords into the Out4Russia site that helped users lobby leaders of G20 countries to apply pressure to Russia on its LGBT rights record</p>
 </div>
