@@ -45,5 +45,13 @@ $(document).ready(() => {
         $(details).slideToggle(0);
     }
 
+    for (const img of document.querySelectorAll('#projects > ol > li img')) {
+        const link = document.createElement('a');
+        link.href = img.src;
+        const imgParent = img.parentElement;
+        imgParent.insertBefore(link, img);
+        link.appendChild(img);
+    }
+
     document.getElementById('experience-years').firstChild.nodeValue = new Date().getFullYear() - 2007
 });
