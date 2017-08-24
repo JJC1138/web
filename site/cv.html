@@ -87,12 +87,20 @@
         font-size: smaller;
     }
 
-    .detail-toggle {
+    div.detail-toggle {
+        width: 32px;
+        height: 32px;
         float: left;
         margin-right: 4px;
     }
+    div.detail-toggle-disclose {
+        background-image: url('/CV%20Images/Disclose.svg');
+    }
+    div.detail-toggle-undisclose {
+        background-image: url('/CV%20Images/Undisclose.svg');        
+    }
     @media print {
-        .detail-toggle {
+        div.detail-toggle {
             display: none;
         }
         #projects div.details {

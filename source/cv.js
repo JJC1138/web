@@ -19,16 +19,18 @@ $(document).ready(() => {
 
     for (const project of document.querySelectorAll('#projects > ol > li[data-minor]')) {
         const heading = project.querySelector('.heading');
-        const toggle = document.createElement('img');
-        const toggleButtonImageSources = ["/CV%20Images/Disclose.svg", "/CV%20Images/Undisclose.svg"];
-        toggle.src = toggleButtonImageSources[0];
+        const toggle = document.createElement('div');
+        const toggleButtonStateClasses = ['detail-toggle-disclose', 'detail-toggle-undisclose'];
         toggle.classList.add('detail-toggle');
+        toggle.classList.add(toggleButtonStateClasses[0]);
         heading.insertBefore(toggle, heading.firstChild);
 
         const details = project.querySelector('.details');
         toggle.addEventListener('click', () => {
             $(details).slideToggle();
-            toggle.src = toggleButtonImageSources[toggle.src.endsWith(toggleButtonImageSources[0]) ? 1 : 0];
+            const desiredToggleClassIndex = toggle.classList.contains(toggleButtonStateClasses[0]) ? 1 : 0;
+            toggle.classList.add(toggleButtonStateClasses[desiredToggleClassIndex]);
+            toggle.classList.remove(toggleButtonStateClasses[1 - desiredToggleClassIndex]);
         });
 
         $(details).hide();
