@@ -20,19 +20,28 @@ $(document).ready(() => {
     for (const project of document.querySelectorAll('#projects > ol > li[data-minor]')) {
         const heading = project.querySelector('.heading');
         const toggle = document.createElement('div');
-        const toggleButtonStateClasses = ['detail-toggle-disclose', 'detail-toggle-undisclose'];
         toggle.classList.add('detail-toggle');
-        toggle.classList.add(toggleButtonStateClasses[0]);
+
+        const toggleDisclose = document.createElement('div');
+        toggleDisclose.classList.add('detail-toggle-disclose');
+
+        const toggleUndisclose = document.createElement('div');
+        toggleUndisclose.classList.add('detail-toggle-undisclose');
+        $(toggleUndisclose).fadeToggle(0);
+
+        toggle.appendChild(toggleDisclose);
+        toggle.appendChild(toggleUndisclose);
+
         heading.insertBefore(toggle, heading.firstChild);
 
         const details = project.querySelector('.details');
         toggle.addEventListener('click', () => {
             $(details).slideToggle();
-            const desiredToggleClassIndex = toggle.classList.contains(toggleButtonStateClasses[0]) ? 1 : 0;
-            toggle.classList.add(toggleButtonStateClasses[desiredToggleClassIndex]);
-            toggle.classList.remove(toggleButtonStateClasses[1 - desiredToggleClassIndex]);
+            const toggleStateAnimationDuration = 175;
+            $(toggleDisclose).fadeToggle(toggleStateAnimationDuration);
+            $(toggleUndisclose).fadeToggle(toggleStateAnimationDuration);
         });
 
-        $(details).hide();
+        $(details).slideToggle(0);
     }
 });

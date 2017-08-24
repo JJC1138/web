@@ -92,12 +92,19 @@
         height: 32px;
         float: left;
         margin-right: 4px;
+        position: relative;
     }
     div.detail-toggle-disclose {
+        width: inherit;
+        height: inherit;
+        position: absolute; top: 0; left: 0;
         background-image: url('/CV%20Images/Disclose.svg');
     }
     div.detail-toggle-undisclose {
-        background-image: url('/CV%20Images/Undisclose.svg');        
+        width: inherit;
+        height: inherit;
+        position: absolute; top: 0; left: 0;
+        background-image: url('/CV%20Images/Undisclose.svg');
     }
     @media print {
         div.detail-toggle {
