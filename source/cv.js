@@ -44,4 +44,6 @@ $(document).ready(() => {
 
         $(details).slideToggle(0);
     }
+
+    document.getElementById('experience-years').firstChild.nodeValue = new Date().getFullYear() - 2007
 });
