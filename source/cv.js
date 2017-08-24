@@ -46,6 +46,7 @@ $(document).ready(() => {
     }
 
     for (const img of document.querySelectorAll('#projects > ol > li img')) {
+        img.alt = "Screenshot";
         const link = document.createElement('a');
         link.href = img.src;
         const imgParent = img.parentElement;
