@@ -19,14 +19,16 @@ $(document).ready(() => {
 
     for (const project of document.querySelectorAll('#projects > ol > li[data-minor]')) {
         const heading = project.querySelector('.heading');
-        const toggle = document.createElement('div');
-        toggle.innerText = "X"; // FIXME remove
+        const toggle = document.createElement('img');
+        const toggleButtonImageSources = ["/CV%20Images/Disclose.svg", "/CV%20Images/Undisclose.svg"];
+        toggle.src = toggleButtonImageSources[0];
         toggle.classList.add('detail-toggle');
         heading.insertBefore(toggle, heading.firstChild);
 
         const details = project.querySelector('.details');
         toggle.addEventListener('click', () => {
             $(details).slideToggle();
+            toggle.src = toggleButtonImageSources[toggle.src.endsWith(toggleButtonImageSources[0]) ? 1 : 0];
         });
 
         $(details).hide();
