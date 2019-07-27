@@ -9,11 +9,7 @@ const outPath = path.join(__dirname, 'site');
 const test = process.env.npm_lifecycle_event === 'test';
 const production = test || process.env.NODE_ENV === 'production';
 
-let plugins = [
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'commons',
-    }),
-];
+let plugins = [];
 
 if (production) {
     plugins = plugins.concat([
@@ -60,4 +56,5 @@ module.exports = {
     plugins: plugins,
     devtool: production ? false : 'source-map',
     bail: test,
+    mode: production ? 'production' : 'development',
 };
