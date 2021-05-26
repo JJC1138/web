@@ -1,5 +1,6 @@
 'use strict';
 
+const ESLintPlugin = require('eslint-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -9,7 +10,7 @@ const outPath = path.join(__dirname, 'site');
 const test = process.env.npm_lifecycle_event === 'test';
 const production = test || process.env.NODE_ENV === 'production';
 
-let plugins = [];
+let plugins = [new ESLintPlugin({ failOnWarning: true })];
 
 if (production) {
     plugins = plugins.concat([
@@ -36,14 +37,6 @@ module.exports = {
     },
     module: {
         rules: [
-            Object.assign({}, loaderTemplateForOurJS, {
-                enforce: 'pre',
-                loader: 'eslint-loader',
-                query: {
-                    failOnWarning: true,
-                    failOnError: true,
-                },
-            }),
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
