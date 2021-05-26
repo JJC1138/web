@@ -4,7 +4,6 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 
 const sourcePath = 'source';
-const outPath = path.join(__dirname, 'site');
 
 const test = process.env.npm_lifecycle_event === 'test';
 const production = test || process.env.NODE_ENV === 'production';
@@ -13,9 +12,6 @@ module.exports = {
     entry: {
         'home': './' + path.join(sourcePath, 'home.js'),
         'cv': './' + path.join(sourcePath, 'cv.js'),
-    },
-    output: {
-        path: outPath,
     },
     module: {
         rules: [
@@ -26,7 +22,7 @@ module.exports = {
         ],
     },
     devServer: {
-        contentBase: outPath,
+        contentBase: path.join(__dirname, 'dist'),
     },
     plugins: [new ESLintPlugin({ failOnWarning: true })],
     devtool: production ? false : 'source-map',
