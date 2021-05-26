@@ -54,5 +54,5 @@ $(() => {
         link.appendChild(img);
     }
 
-    document.getElementById('experience-years').firstChild.nodeValue = new Date().getFullYear() - 2007
+    document.getElementById('experience-years').firstChild.nodeValue = new Date().getFullYear() - 2007;
 });
