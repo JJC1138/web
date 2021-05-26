@@ -91,40 +91,6 @@
         font-size: smaller;
     }
 
-    div.detail-toggle {
-        width: 32px;
-        height: 32px;
-        float: left;
-        margin-right: 8px;
-        margin-left: -10px;
-        position: relative;
-    }
-    div.detail-toggle-disclose {
-        width: inherit;
-        height: inherit;
-        position: absolute; top: 0; left: 0;
-        background-image: url('/CV%20Images/Disclose.svg');
-    }
-    div.detail-toggle-undisclose {
-        width: inherit;
-        height: inherit;
-        position: absolute; top: 0; left: 0;
-        background-image: url('/CV%20Images/Undisclose.svg');
-    }
-    @media print {
-        div.detail-toggle {
-            display: none;
-        }
-        #projects div.details {
-            display: block !important; /* Unhide any that have been hidden. */
-        }
-    }
-
-    #projects li[data-minor] h3::before {
-        content: "Minor Project: ";
-        font-weight: normal;
-    }
-
     section > ol > li img {
         margin-bottom: 12px;
     }
@@ -169,31 +135,6 @@
 </div>
 </li>
 
-<li data-minor>
-<div class="heading">
-<h3>Tiny Events</h3>
-<div class="date">June 2017</div>
-</div>
-<div class="details">
-<p>A one-file event system library for Swift</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Swift</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/tiny-events"></a></div>
-</div>
-</li>
-
-<li data-minor>
-<div class="heading">
-<h3>Network Color Picker</h3>
-<div class="date">April 2017</div>
-</div>
-<div class="details">
-<p>A developer tool for experimenting with different colours when developing apps</p>
-<p>Consists of a server that runs on a Mac and shows a color picker, and a client library that another (iOS) app uses to connect to the server and be notified when the color is changed on the Mac</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Swift</li> <li>iOS</li> <li>macOS</li> <li>Bonjour</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/network-color-picker"></a></div>
-</div>
-</li>
-
 <li>
 <div class="heading">
 <h3>Day Planner</h3>
@@ -206,56 +147,6 @@
 <img src="/CV%20Images/Screenshots/Day%20Planner/3.png" height="240">
 <div class="note"><span class="label">Tech:</span> <ul><li>Swift</li> <li>iOS</li> <li>CloudKit</li></ul></div>
 <div class="note"><span class="label">App Store:</span> <a href="https://dayplanner.app/">Day Planner</a></div>
-</div>
-</li>
-
-<li data-minor>
-<div class="heading">
-<h3>sqscat</h3>
-<div class="date">September 2016</div>
-</div>
-<div class="details">
-<p>A tiny tool for integrating Amazon's SQS queue service into UNIX pipe-based workflows</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/sqscat"></a></div>
-</div>
-</li>
-
-<li data-minor>
-<div class="heading">
-<h3>Video Conversion Toggler</h3>
-<div class="date">January — February 2016</div>
-</div>
-<div class="details">
-<p>An app for Apple TV and other Apple platforms for configuring a setting on certain AV receivers</p>
-<p>Developed mainly as a learning project for getting to know Swift and Cocoa</p>
-<p>Builds from one codebase for all Apple platforms</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Swift</li> <li>iOS</li> <li>macOS</li> <li>tvOS</li> <li>watchOS</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/video-conversion-toggler"></a></div>
-</div>
-</li>
-
-<li data-minor>
-<div class="heading">
-<h3>route53dynamicdns</h3>
-<div class="date">Starting October 2015</div>
-</div>
-<div class="details">
-<p>A small script that updates a Route53 DNS record with the machine's current IP address</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/route53dynamicdns"></a></div>
-</div>
-</li>
-
-<li data-minor>
-<div class="heading">
-<h3>ec2start</h3>
-<div class="date">Starting July 2015</div>
-</div>
-<div class="details">
-<p>A tool for starting up an EC2 instance (optionally using spot pricing for substantial discounts) and setting it up securely for remote connections</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/ec2start"></a></div>
 </div>
 </li>
 
@@ -315,18 +206,6 @@
 <p>An open-source tool for web developers that dramatically simplifies the process of setting up static web site hosting on Amazon Web Services' S3 and CloudFront</p>
 <div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
 <div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/staticwebsync"></a></div>
-</div>
-</li>
-
-<li data-minor>
-<div class="heading">
-<h3><a href="https://jjc1138.net/">JJC1138.net</a></h3>
-<div class="date">Starting October 2010</div>
-</div>
-<div class="details">
-<p>My simple personal web site that I use as a playground for trying out new web technologies</p>
-<div class="note"><span class="label">Current Tech:</span> <ul><li>ES2015 JavaScript</li> <li>webpack</li> <li>jQuery</li> <li>Travis CI</li> <li>Typekit</li> <li>Flickr API</li> <li>ESLint</li> <li>Firebase Hosting</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/web"></a></div>
 </div>
 </li>
 

@@ -17,34 +17,6 @@ $(() => {
         }
     }
 
-    for (const project of document.querySelectorAll('#projects > ol > li[data-minor]')) {
-        const heading = project.querySelector('.heading');
-        const toggle = document.createElement('div');
-        toggle.classList.add('detail-toggle');
-
-        const toggleDisclose = document.createElement('div');
-        toggleDisclose.classList.add('detail-toggle-disclose');
-
-        const toggleUndisclose = document.createElement('div');
-        toggleUndisclose.classList.add('detail-toggle-undisclose');
-        $(toggleUndisclose).fadeToggle(0);
-
-        toggle.appendChild(toggleDisclose);
-        toggle.appendChild(toggleUndisclose);
-
-        heading.insertBefore(toggle, heading.firstChild);
-
-        const details = project.querySelector('.details');
-        toggle.addEventListener('click', () => {
-            $(details).slideToggle();
-            const toggleStateAnimationDuration = 175;
-            $(toggleDisclose).fadeToggle(toggleStateAnimationDuration);
-            $(toggleUndisclose).fadeToggle(toggleStateAnimationDuration);
-        });
-
-        $(details).slideToggle(0);
-    }
-
     for (const img of document.querySelectorAll('#projects > ol > li img')) {
         img.alt = "Screenshot";
         const link = document.createElement('a');
