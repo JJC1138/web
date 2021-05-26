@@ -18,7 +18,7 @@ loadFonts(
     }
 );
 
-$(document).ready(() => {
+$(() => {
     emailDeobfuscator();
     flickrBackgroundImage({
         apiKey: 'baffdb3f3f3d6542c2905eb089ddf2ca',

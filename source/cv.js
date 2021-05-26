@@ -3,7 +3,7 @@ import 'normalize.css';
 
 import { cleanAddress, addListenersToCleanAddressesOnInteraction } from './email-deobfuscator.js';
 
-$(document).ready(() => {
+$(() => {
     addListenersToCleanAddressesOnInteraction();
     cleanAddress.bind(document.getElementById('email'))();
 
