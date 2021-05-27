@@ -23,7 +23,7 @@
         text-decoration: underline;
     }
 
-    section > p,section > div,section > ol > li,section > ol .details,section > ol .reviews {
+    section > p,section > div,section > ol > li,section > ol .details,section > ol .reviews, .details .offset {
         margin-left: 15px;
     }
 
@@ -113,7 +113,7 @@
 <h2>Summary</h2>
 <div>
 <p>I'm a software developer with <span id="experience-years">14</span> years of professional experience in developing games, apps, and server-side code.</p>
-<p>I make highly-rated products and write elegant code. I'm perfectly happy working in a variety of languages (including C++, Python, C#, and Swift) and across all areas of game, app, and backend development. I have strong knowledge of Unreal Engine (UE4), Unity, and Amazon Web Services including Lambda, GameLift, and CDK.</p>
+<p>I make highly-rated products and write elegant code. I'm perfectly happy working in a variety of languages (including C++, Python, C#, and Swift) and across all areas of game, app, and backend development. I have strong knowledge of Unreal Engine (UE4), Unity, and Amazon Web Services (AWS) including Lambda, GameLift, EC2, and CDK.</p>
 <p>I've shipped projects solo, leading small teams, and working as a freelancer with <a href="#freelance">exceptionally positive feedback</a>.</p>
 </div>
 </section>
@@ -131,7 +131,13 @@
 <p>Developed games for Xbox 360, PC, iOS, Android, Mac, and Linux.</p>
 <p>Developed apps for iOS, Android, and macOS.</p>
 <p>Did all areas of product development including programming, design, marketing, usability testing, PR, and art and sound direction.</p>
-<p>Highly-rated products include <a href="#meshexplosion">Mesh Explosion</a> (<strong>5 stars</strong> on Unity Asset Store), <a href="#goodstopwatchgoodtimer">Good Stopwatch/Good Timer</a> (<strong>4.8 stars</strong> on Mac App Store), and <a href="#dayplanner">Day Planner</a> (<strong>4.6 stars</strong> on App Store).</p>
+<p>Products developed include:</p>
+<div class="offset">
+<p><a href="#seu2unity">Stick 'Em Up 2</a>: a multiplayer run'n'gun game released on 6 platforms</p>
+<p><a href="#meshexplosion">Mesh Explosion</a>: an explosion system for Unity with <strong>5 stars</strong> on the Asset Store</p>
+<p><a href="#goodstopwatchgoodtimer">Good Stopwatch/Good Timer</a>: simple and beautiful timing apps with <strong>4.8 stars</strong> on the Mac App Store</p>
+<p><a href="#dayplanner">Day Planner</a>: a unique scheduling app with <strong>4.6 stars</strong> on App Store</p>
+</div>
 </div>
 </li>
 
@@ -215,7 +221,7 @@
 </div>
 </li>
 
-<li>
+<li id="seu2unity">
 <div class="heading">
 <h3>Stick 'Em Up 2 <span class="subtitle">(PC and mobile port)</span></h3>
 <div class="date">June 2013 — July 2015</div>
