@@ -59,18 +59,21 @@
         margin-top: 4px;
     }
 
-    section > ol .note {
+    div.notes {
+        break-inside: avoid;
+    }
+    div.notes > div {
         line-height: 22px;
         font-size: smaller;
     }
-    section > ol .note > .label {
+    div.notes > div > .label {
         color: #8e8e8e;
     }
-    section > ol .note > ul {
+    div.notes > div > ul {
         display: inline;
         padding: 0;
     }
-    section > ol .note > ul > li {
+    div.notes > div > ul > li {
         display: inline;
         background-color: #e6e6e6;
         color: #4a4a4a;
@@ -103,8 +106,8 @@
 
     /* Workaround for a (Chrome?) bug where one pixel line gets put on the previous page: */
     @media print {
-        #heroteam div.screenshots {
-            padding-top: 20px;
+        div.screenshots {
+            padding-top: 1px;
         }
     }
 </style>
@@ -172,8 +175,10 @@
 <p>'Excellent work and extremely responsive. A true pleasure.'</p>
 <p>'Wow. Jon really went over and above the call of duty this time. I can't say thanks enough.'</p>
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>JavaScript</li> <li>C</li> <li>EC2</li> <li>Linux</li> <li>Python</li> <li>Windows</li> <li>Android</li> <li>Java</li> <li>WordPress</li> <li>PHP</li></ul></div>
-<div class="note"><span class="label">Client Reviews:</span> <a href="https://www.freelancer.com/u/jjc1138"></a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>JavaScript</li> <li>C</li> <li>EC2</li> <li>Linux</li> <li>Python</li> <li>Windows</li> <li>Android</li> <li>Java</li> <li>WordPress</li> <li>PHP</li></ul></div>
+<div><span class="label">Client Reviews:</span> <a href="https://www.freelancer.com/u/jjc1138"></a></div>
+</div>
 </div>
 </li>
 
@@ -201,8 +206,10 @@
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Hero%20Team/Input%20Remapping.jpg" height="108">
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Hero%20Team/Inactive%20Regions.jpg" height="108">
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>Unreal Engine</li> <li>C++</li> <li>Python</li> <li>GameLift</li> <li>Lambda</li> <li>CDK</li> <li>DynamoDB</li> <li>Steamworks</li> <li>Blender</li></ul></div>
-<div class="note"><span class="label">Steam:</span> <a href="https://store.steampowered.com/app/1253410/Hero_Team/">Hero Team</a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Unreal Engine</li> <li>C++</li> <li>Python</li> <li>GameLift</li> <li>Lambda</li> <li>CDK</li> <li>DynamoDB</li> <li>Steamworks</li> <li>Blender</li></ul></div>
+<div><span class="label">Steam:</span> <a href="https://store.steampowered.com/app/1253410/Hero_Team/">Hero Team</a></div>
+</div>
 </div>
 </li>
 
@@ -217,8 +224,10 @@
 <div class="screenshots">
 <img src="/CV%20Images/Screenshots/Good%20Stopwatch.png" height="120">
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>Swift</li> <li>macOS</li></ul></div>
-<div class="note"><span class="label">Mac App Store:</span> <a href="https://goodstopwatch.app/">Good Stopwatch</a> / <a href="https://goodtimer.app/">Good Timer</a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Swift</li> <li>macOS</li></ul></div>
+<div><span class="label">Mac App Store:</span> <a href="https://goodstopwatch.app/">Good Stopwatch</a> / <a href="https://goodtimer.app/">Good Timer</a></div>
+</div>
 </div>
 </li>
 
@@ -236,8 +245,10 @@
 <img src="/CV%20Images/Screenshots/Day%20Planner/1.png" height="240">
 <img src="/CV%20Images/Screenshots/Day%20Planner/3.png" height="240">
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>Swift</li> <li>iOS</li> <li>CloudKit</li></ul></div>
-<div class="note"><span class="label">App Store:</span> <a href="https://dayplanner.app/">Day Planner</a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Swift</li> <li>iOS</li> <li>CloudKit</li></ul></div>
+<div><span class="label">App Store:</span> <a href="https://dayplanner.app/">Day Planner</a></div>
+</div>
 </div>
 </li>
 
@@ -255,9 +266,11 @@
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/SEU2/Pirates.png" height="108">
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/SEU2/Space Race.png" height="108">
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>Unity</li> <li>C#</li> <li>Steamworks</li></ul></div>
-<div class="note"><span class="label">Web:</span> <a href="https://stickemup2.com/"></a></div>
-<div class="note"><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=gJPq5DjtZOc"></a> (0:29)</div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Unity</li> <li>C#</li> <li>Steamworks</li></ul></div>
+<div><span class="label">Web:</span> <a href="https://stickemup2.com/"></a></div>
+<div><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=gJPq5DjtZOc"></a> (0:29)</div>
+</div>
 </div>
 </li>
 
@@ -273,10 +286,12 @@
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Mesh%20Explosion/Barrels.png" height="160">
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Mesh%20Explosion/Gizmos.png" height="160">
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>Unity</li> <li>C#</li></ul></div>
-<div class="note"><span class="label">Info/Reviews:</span> <a href="https://u3d.as/content/ndp-tools/mesh-explosion"></a></div>
-<div class="note"><span class="label">Live Web Demo:</span> <a href="https://tools.neverdontplay.com/meshexplosion/demo/"></a></div>
-<div class="note"><span class="label">Demo Screencast:</span> <a href="https://www.youtube.com/watch?v=XHxcXWoRxkE"></a> (5:47)</div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Unity</li> <li>C#</li></ul></div>
+<div><span class="label">Info/Reviews:</span> <a href="https://u3d.as/content/ndp-tools/mesh-explosion"></a></div>
+<div><span class="label">Live Web Demo:</span> <a href="https://tools.neverdontplay.com/meshexplosion/demo/"></a></div>
+<div><span class="label">Demo Screencast:</span> <a href="https://www.youtube.com/watch?v=XHxcXWoRxkE"></a> (5:47)</div>
+</div>
 </div>
 </li>
 
@@ -288,9 +303,11 @@
 <div class="details">
 <p>Platform/run'n'gun game sequel with significantly upgraded graphics. Achieved a perfect 60fps frame rate with zero hitches by carefully avoiding all dynamic allocation and garbage collection at runtime.</p>
 <p>Sold over <strong>47,000</strong> copies.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>XNA</li> <li>C#</li> <li>Xbox 360</li></ul></div>
-<div class="note"><span class="label">Web:</span> <a href="https://stickemup2.com/"></a></div>
-<div class="note"><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=jHRmY51FAl4"></a> (1:15)</div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>XNA</li> <li>C#</li> <li>Xbox 360</li></ul></div>
+<div><span class="label">Web:</span> <a href="https://stickemup2.com/"></a></div>
+<div><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=jHRmY51FAl4"></a> (1:15)</div>
+</div>
 </div>
 </li>
 
@@ -301,8 +318,10 @@
 </div>
 <div class="details">
 <p>An open-source tool for web developers that significantly simplifies the process of setting up static web site hosting on Amazon Web Services' S3 and CloudFront. It handles all the fiddly details and annoyances of setting the services up manually with sensible defaults to provide a delightfully simple one-line deployment method.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
-<div class="note"><span class="label">Source:</span> <a href="https://github.com/JJC1138/staticwebsync"></a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Python</li> <li>Amazon Web Services</li></ul></div>
+<div><span class="label">Source:</span> <a href="https://github.com/JJC1138/staticwebsync"></a></div>
+</div>
 </div>
 </li>
 
@@ -313,9 +332,11 @@
 </div>
 <div class="details">
 <p>An Xbox 360 platform/run'n'gun game. It includes 4-player couch co-op and versus modes, and an innovative gamepad control scheme.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>XNA</li> <li>C#</li> <li>Xbox 360</li></ul></div>
-<div class="note"><span class="label">Web:</span> <a href="http://www.whatevergames.net/stickemup/"></a></div>
-<div class="note"><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=_K7oAmImVmo"></a> (0:55)</div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>XNA</li> <li>C#</li> <li>Xbox 360</li></ul></div>
+<div><span class="label">Web:</span> <a href="http://www.whatevergames.net/stickemup/"></a></div>
+<div><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=_K7oAmImVmo"></a> (0:55)</div>
+</div>
 </div>
 </li>
 
@@ -326,8 +347,10 @@
 </div>
 <div class="details">
 <p>An Android game where players trace drawings to cast spells against magical monsters. It included an online high-score system using a massively-scalable backend built with Python on Google App Engine/Cloud Datastore.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li> <li>OpenGL ES</li> <li>Python</li> <li>App Engine</li></ul></div>
-<div class="note"><span class="label">Web:</span> <a href="http://www.jjcgames.com/wandmaster/"></a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li> <li>OpenGL ES</li> <li>Python</li> <li>App Engine</li></ul></div>
+<div><span class="label">Web:</span> <a href="http://www.jjcgames.com/wandmaster/"></a></div>
+</div>
 </div>
 </li>
 
@@ -343,9 +366,11 @@
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Air Hockey/Game.png" height="220">
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Air Hockey/Progress.png" height="220">
 </div>
-<div class="note"><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li> <li>OpenGL ES</li></ul></div>
-<div class="note"><span class="label">Web:</span> <a href="http://www.jjcgames.com/airhockey/"></a></div>
-<div class="note"><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=UFL_ptqAw90"></a> (0:41)</div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li> <li>OpenGL ES</li></ul></div>
+<div><span class="label">Web:</span> <a href="http://www.jjcgames.com/airhockey/"></a></div>
+<div><span class="label">Trailer:</span> <a href="https://www.youtube.com/watch?v=UFL_ptqAw90"></a> (0:41)</div>
+</div>
 </div>
 </li>
 
@@ -356,8 +381,10 @@
 </div>
 <div class="details">
 <p>An extremely minimalist open source Twitter client for Android, and the first one that supported the Android notification system.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li></ul></div>
-<div class="note"><span class="label">Info/Source:</span> <a href="https://github.com/JJC1138/nanoTweeter"></a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li></ul></div>
+<div><span class="label">Info/Source:</span> <a href="https://github.com/JJC1138/nanoTweeter"></a></div>
+</div>
 </div>
 </li>
 
@@ -368,8 +395,10 @@
 </div>
 <div class="details">
 <p>The first ever Last.fm client for Android. It had over <strong>190,000 downloads</strong>.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li></ul></div>
-<div class="note"><span class="label">Info/Source:</span> <a href="https://github.com/JJC1138/scrobbledroid"></a></div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Android</li> <li>Java</li></ul></div>
+<div><span class="label">Info/Source:</span> <a href="https://github.com/JJC1138/scrobbledroid"></a></div>
+</div>
 </div>
 </li>
 
@@ -380,8 +409,10 @@
 </div>
 <div class="details">
 <p>A pay-by-the-hour game server hosting service. Provided an easy consumer-friendly retail front-end for EC2 server rental.</p>
-<div class="note"><span class="label">Tech:</span> <ul><li>Python</li> <li>Django</li> <li>EC2</li> <li>PostgreSQL</li> <li>JavaScript</li> <li>PayPal API</li></ul></div>
-<div class="note"><span class="label">Demo Screencast:</span> <a href="https://www.youtube.com/watch?v=R4tUJ1_lKbY"></a> (1:03)</div>
+<div class="notes">
+<div><span class="label">Tech:</span> <ul><li>Python</li> <li>Django</li> <li>EC2</li> <li>PostgreSQL</li> <li>JavaScript</li> <li>PayPal API</li></ul></div>
+<div><span class="label">Demo Screencast:</span> <a href="https://www.youtube.com/watch?v=R4tUJ1_lKbY"></a> (1:03)</div>
+</div>
 </div>
 </li>
 
