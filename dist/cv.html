@@ -97,17 +97,20 @@
         font-size: smaller;
     }
 
-    section > ol > li img {
+    section > ol > li img,video {
         margin-bottom: 12px;
     }
-    img.shadowed-screenshot {
+    .shadowed-screenshot {
         box-shadow: rgba(0, 0, 0, 0.42) 1px 1px 3px;
     }
 
-    /* Workaround for a (Chrome?) bug where one pixel line gets put on the previous page: */
     @media print {
         div.screenshots {
+            /* Workaround for a (Chrome?) bug where one pixel line gets put on the previous page: */
             padding-top: 1px;
+        }
+        video {
+            display: none;
         }
     }
 </style>
@@ -200,6 +203,7 @@
 <p>4-player local multiplayer is available. Gamepads and mouse/keyboard are supported with a custom input mapping system that builds upon Enhanced Input to allow unlimited player input customization.</p>
 <p>The game has full online play support, with a custom backend built on Amazon Web Services. Linux dedicated servers are hosted using GameLift, with a feature that lets players start up servers in any of the 21 GameLift regions with no administrative intervention required. The backend service is written in Python and deployed using Docker containers to Lambda. DynamoDB is used to store player data, and the game uses a custom data syncing system that is fully platform-independent for potential cross-platform support. The whole AWS setup is configured and deployed using CDK infrastructure-as-code.</p>
 <div class="screenshots">
+<video class="shadowed-screenshot" src="/CV%20Images/Screenshots/Hero%20Team/2023-01-08%20Gameplay%20Example%20(1080p60%20with%20Sound).mp4" preload="metadata" muted controls loop width="584" disablepictureinpicture></video>
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Hero%20Team/Dice%20Lobby%20Shrug.jpg" height="108">
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Hero%20Team/Running%20Up%20Ramp.png" height="108">
 <img class="shadowed-screenshot" src="/CV%20Images/Screenshots/Hero%20Team/Ducking%20Behind%20Cover.png" height="108">
